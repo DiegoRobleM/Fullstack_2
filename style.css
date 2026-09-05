@@ -48,3 +48,14 @@ header .nav-link:hover {
     align-items: center;
     text-align: center;
 }
+.footer-contenido{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-contenido info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
