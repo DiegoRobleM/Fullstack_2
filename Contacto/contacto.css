@@ -1,0 +1,13 @@
+main {
+    height: 100vh;           /* Hace que ocupe todo el alto de la pantalla */
+    margin: 0;               /* Quita los espacios en blanco de los bordes */
+    display: flex;           /* Activa el modo Flexbox */
+    justify-content: center; /* Empuja el contenido al centro horizontal */
+    align-items: center;     /* Empuja el contenido al centro vertical */
+}
+
+.tituloContacto{
+    justify-content: center;
+    align-items: center;
+    
+}
