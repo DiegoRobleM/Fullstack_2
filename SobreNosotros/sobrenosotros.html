@@ -12,86 +12,12 @@
 
     <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-    <header>
-      <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container">
-          <a class="navbar-brand fw-bold" href="C:\Users\Diego\Desktop\Fullstack 2\Caso02\Inicio\index.html">Pastelería 1000 Sabores</a>
-
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#menu"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="menu">
-            <ul class="navbar-nav me-auto">
-              <li class="nav-item">
-                <a class="nav-link active" href="C:\Users\Diego\Desktop\Fullstack 2\Caso02\Inicio\index.html">Inicio</a>
-              </li>
-
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  data-bs-toggle="dropdown"
-                  >Productos</a
-                >
-
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="C:\Users\Diego\Desktop\Fullstack 2\Caso02\Productos\pasteleria.html">Pastelería</a></li>
-
-                  <li><a class="dropdown-item" href="#">Sin azúcar</a></li>
-
-                  <li><a class="dropdown-item" href="#">Panadería</a></li>
-
-                  <li><a class="dropdown-item" href="#">Salados</a></li>
-
-                  <li><a class="dropdown-item" href="#">Cafetería</a></li>
-
-                  <li>
-                    <hr class="dropdown-divider" />
-                  </li>
-                  
-                  <li><a class="dropdown-item" href="#">Ofertas </a></li>
-                </ul>
-              </li>
-              
-              <li class="nav-item">
-                <a class="nav-link" href="#">Contacto </a>
-              </li>
-              
-               <li class="nav-item">
-                <a class="nav-link" href="C:\Users\Diego\Desktop\Fullstack 2\Caso02\InicioSesion\iniciosesion.html">Iniciar Sesión </a>
-              </li>
-
-               <li class="nav-item">
-                <a class="nav-link" href="C:\Users\Diego\Desktop\Fullstack 2\Caso02\SobreNosotros\sobrenosotros.html">Sobre nosotros </a>
-              </li>
-
-            </ul>
-
-            <form class="d-flex" role="search">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Buscar..."
-              />
-
-              <button class="btn btn-outline-success" type="submit">
-                Buscar
-              </button>
-            </form>
-          </div>
-        </div>
-      </nav>
-    </header>
+<body style="background-color: #fff5e1">
+    <mi-navbar></mi-navbar>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="function.js"></script>
+    <script src="../navbar.js" defer></script>
 </body>
 </html>
