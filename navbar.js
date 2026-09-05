@@ -41,7 +41,7 @@ class MiNavbar extends HTMLElement {
                   </li>
                   
                   <li class="nav-item">
-                    <a class="nav-link" href="C:/Users/Diego/Desktop/Fullstack 2/Caso02/Contacto/contacto.html">Contacto </a>
+                    <a class="nav-link" href="../Contacto/contacto.html">Contacto </a>
                   </li>
                   
                   <li class="nav-item">
