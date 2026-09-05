@@ -1,0 +1,50 @@
+header .navbar-brand {
+  color: #3f2b09 !important; 
+}
+
+header .navbar-brand:hover {
+  color: #d1869d !important; 
+  transition: color 1s;
+}
+
+header .nav-link {
+  color: #3f2b09 !important; 
+}
+
+header .nav-link:hover {
+  color: #d1869d !important; 
+  transition: color 1s;
+}   
+
+.card{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    width: 300px;
+    margin: 10px auto;
+    text-align: center;
+    color: #3f2b09;
+    background-color: #dae2ec;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card small {
+  display: block;
+  color: #3f2b09;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.contenedor-btn {
+  display: flex; 
+  justify-content: center;
+  gap: 10px; 
+  margin-top: 15px;
+}
+
+.contenedor-InicioSesion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
