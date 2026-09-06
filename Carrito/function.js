@@ -1,91 +1,136 @@
 const LLAVE = "carrito";
 
-let carrito =
-    JSON.parse(localStorage.getItem(LLAVE)) || [];
+let carrito = JSON.parse(localStorage.getItem(LLAVE)) || [];
 
-const contenedorCarrito =
-    document.getElementById("carrito");
+const contenedorCarrito = document.getElementById("carrito");
 
-const totalElemento =
-    document.getElementById("total");
-
+const totalElemento = document.getElementById("total");
 
 function mostrarCarrito() {
+  contenedorCarrito.innerHTML = "";
 
-    contenedorCarrito.innerHTML = "";
+  let total = 0;
 
-    let total = 0;
+  carrito.forEach(function (producto, indice) {
+    const item = document.createElement("div");
 
+    item.className = "card mb-3";
 
-    carrito.forEach(function(producto, indice) {
+    item.innerHTML = `
+        <div class="card-body d-flex align-items-center gap-4">
 
-        const item = document.createElement("div");
+            <img
+                src="../Pasteleria/${producto.imagen}"
+                alt="${producto.titulo}"
+                class="imagen-carrito"
+            >
 
-        item.className = "card mb-3";
+            <div class="flex-grow-1">
 
-        item.innerHTML = `
-            <div class="card-body d-flex align-items-center gap-4">
+                <h5>
+                    ${producto.titulo}
+                </h5>
 
-                <img
-                    src="../Pasteleria/${producto.imagen}"
-                    alt="${producto.titulo}"
-                    class="imagen-carrito"
-                >
+                <p>
+                    Precio:
+                    $${producto.precio.toLocaleString("es-CL")}
+                </p>
 
-                <div class="flex-grow-1">
+                <div class="d-flex align-items-center gap-2">
 
-                    <h5>
-                        ${producto.titulo}
-                    </h5>
+                    <button
+                        type="button"
+                        class="btn btn-outline-secondary btn-restar"
+                    >
+                        -
+                    </button>
 
-                    <p>
-                        Precio:
-                        $${producto.precio.toLocaleString("es-CL")}
-                    </p>
+                    <span>
+                        ${producto.cantidad}
+                    </span>
+
+                    <button
+                        type="button"
+                        class="btn btn-outline-secondary btn-sumar"
+                    >
+                        +
+                    </button>
 
                 </div>
 
-                <button
-                    type="button"
-                    class="btn btn-outline-danger btn-eliminar"
-                >
-                    Eliminar
-                </button>
+                <p class="mt-2">
+                    Subtotal:
+                    $${(producto.precio * producto.cantidad).toLocaleString("es-CL")}
+                </p>
 
             </div>
-        `;
 
+            <button
+                type="button"
+                class="btn btn-outline-danger btn-eliminar"
+            >
+                Eliminar
+            </button>
 
-        const btnEliminar =
-            item.querySelector(".btn-eliminar");
+        </div>
+    `;
 
-        btnEliminar.addEventListener("click", function() {
-            eliminar(indice);
-        });
+    const btnEliminar = item.querySelector(".btn-eliminar");
 
+    const btnSumar = item.querySelector(".btn-sumar");
 
-        contenedorCarrito.appendChild(item);
+    const btnRestar = item.querySelector(".btn-restar");
 
-        total = total + producto.precio;
+    btnEliminar.addEventListener("click", function () {
+      eliminar(indice);
     });
 
+    btnSumar.addEventListener("click", function () {
+      aumentarCantidad(indice);
+    });
 
-    totalElemento.textContent =
-        "$" + total.toLocaleString("es-CL");
+    btnRestar.addEventListener("click", function () {
+      disminuirCantidad(indice);
+    });
+    contenedorCarrito.appendChild(item);
+
+    total = total + (producto.precio * producto.cantidad);
+  });
+
+  totalElemento.textContent = "$" + total.toLocaleString("es-CL");
 }
 
-
 function eliminar(indice) {
+  carrito.splice(indice, 1);
 
-    carrito.splice(indice, 1);
+  guardarCarrito();
+
+  mostrarCarrito();
+}
+
+function aumentarCantidad(indice) {
+  carrito[indice].cantidad++;
+
+  guardarCarrito();
+
+  mostrarCarrito();
+}
+
+function disminuirCantidad(indice) {
+  if (carrito[indice].cantidad > 1) {
+    carrito[indice].cantidad--;
+  }
+
+  guardarCarrito();
+
+  mostrarCarrito();
+}
+
+function guardarCarrito() {
 
     localStorage.setItem(
         LLAVE,
         JSON.stringify(carrito)
     );
-
-    mostrarCarrito();
 }
-
-
 mostrarCarrito();

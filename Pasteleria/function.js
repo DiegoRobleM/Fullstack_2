@@ -102,7 +102,20 @@ function guardar(producto) {
     let carrito =
         JSON.parse(localStorage.getItem(LLAVE)) || [];
 
-    carrito.push(producto);
+    const productoExistente =
+        carrito.find(item => item.id === producto.id);
+
+    if (productoExistente) {
+
+        productoExistente.cantidad++;
+
+    } else {
+
+        producto.cantidad = 1;
+
+        carrito.push(producto);
+
+    }
 
     localStorage.setItem(
         LLAVE,
