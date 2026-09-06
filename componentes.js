@@ -76,7 +76,7 @@ class MiNavbar extends HTMLElement {
                     >
 
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="../Productos/pasteleria.html">Pastelería</a></li>
+                      <li><a class="dropdown-item" href="../Pasteleria/pasteleria.html">Pastelería</a></li>
                       <li><a class="dropdown-item" href="#">Sin azúcar</a></li>
                       <li><a class="dropdown-item" href="#">Panadería</a></li>
                       <li><a class="dropdown-item" href="#">Salados</a></li>
