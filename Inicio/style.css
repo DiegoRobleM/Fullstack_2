@@ -1,0 +1,43 @@
+.subtitulo {
+    max-width: 1000px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #5c3d2e;
+    line-height: 1.6;
+    text-align: right;
+}
+
+.imgCentral img {
+    width: 900px;
+    max-width: 100%;
+    height: auto;
+}
+
+h2,
+.subtitulo {
+    text-align: left;
+    max-width: 100%;
+}
+
+.btn-Productos {
+    background-color: #5c3d2e;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-Nosotros {
+    background-color: #5c3d2e;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
