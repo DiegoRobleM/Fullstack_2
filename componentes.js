@@ -14,7 +14,7 @@ class MiFooter extends HTMLElement {
 
         
         this.innerHTML = `
-        <footer class="bg-light mt-auto py-3">
+        <footer class="bg-light py-3">
             <div class="container d-flex justify-content-center align-items-center gap-4">
 
                 <p class="mb-0">
