@@ -1,44 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Carrito | Pastelería 1000 Sabores</title>
 
-    <link rel="stylesheet" href="../globalstyle.css">
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="../globalstyle.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body style="background-color: #fff5e1">
-
+  <body style="background-color: #fff5e1">
     <mi-navbar></mi-navbar>
 
     <main class="container my-5">
+      <h1 class="text-center mb-4">Carrito de compras</h1>
 
-        <h1 class="text-center mb-4">
-            Carrito de compras
-        </h1>
+      <section id="carrito"></section>
 
-        <section id="carrito">
-
-        </section>
-
-        <section class="text-end mt-4">
-            <h3>
-                Total: <span id="total">$0</span>
-            </h3>
-
-        </section>
-
+      <section class="text-end mt-4">
+        <h3>Total: <span id="total">$0</span></h3>
+        <button
+          type="button"
+          id="btn-vaciar"
+          class="btn btn-outline-secondary mt-3"
+        >
+          Vaciar carrito
+        </button>
+      </section>
     </main>
 
     <mi-footer></mi-footer>
 
     <script src="../componentes.js"></script>
     <script src="function.js"></script>
-
-</body>
-
+  </body>
 </html>
