@@ -3,7 +3,7 @@ main p {
 }
 
 .frase-mision {
-  max-width: 900px;
+  max-width: 1000px;
   font-family: 'Montserrat', sans-serif;
   font-size: 1.5rem;
   font-style: italic;
@@ -14,7 +14,7 @@ main p {
 
 .frase-vision {
 
-  max-width: 900px;
+  max-width: 1000px;
   font-family: 'Montserrat', sans-serif;
   font-size: 1.5rem;
   font-style: italic;
