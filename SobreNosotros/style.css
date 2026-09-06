@@ -25,12 +25,10 @@ main p {
 }
 
 .card {
-    height: 100%;
+    width: 22rem;
+    height: auto;
 }
 
-main .card {
-    width: 22rem;
-}
 
 .card-img-top {
     width: 100%;
