@@ -76,8 +76,6 @@ class MiNavbar extends HTMLElement {
                       <li><a class="dropdown-item" href="../SinAzucar/sugar.html">Sin azúcar</a></li>
                       <li><a class="dropdown-item" href="../Panaderia/index.html">Panadería</a></li>
                       <li><a class="dropdown-item" href="../Salados/index.html">Salados</a></li>
-                      <li><hr class="dropdown-divider" /></li>
-                      <li><a class="dropdown-item" href="#">Ofertas </a></li>
                     </ul>
                   </li>
                   
