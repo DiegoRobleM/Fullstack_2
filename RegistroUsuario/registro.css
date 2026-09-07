@@ -60,3 +60,10 @@
     color: #ffffff;
     transition: background-color 1s ease, color 0.3s ease;
 }
+
+
+#mensaje-registro {
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+}
