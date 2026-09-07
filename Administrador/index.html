@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Administración - Pastelería 1000 Sabores</title>
+
+    <link rel="stylesheet" href="../globalstyle.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <mi-navbar></mi-navbar>
+
+    <main id="panel-admin" class="container py-5 d-none">
+      <div class="mb-5">
+        <h1 class="titulo-admin">Panel de administración</h1>
+
+        <p id="saludo-admin" class="text-muted"></p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <article class="card admin-card h-100">
+            <div class="card-body">
+              <i class="bi bi-chat-left-text icono-admin"></i>
+
+              <h2 class="card-title h4 mt-3">Consultas</h2>
+
+              <p class="card-text">
+                Revisar las consultas enviadas por los usuarios.
+              </p>
+
+              <a href="#seccion-consultas" class="btn btn-outline-dark">
+                Ver consultas
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <article class="card admin-card h-100">
+            <div class="card-body">
+              <i class="bi bi-cake2 icono-admin"></i>
+
+              <h2 class="card-title h4 mt-3">Productos</h2>
+
+              <p class="card-text">
+                Crear, editar y eliminar productos del catálogo.
+              </p>
+
+              <span class="badge text-bg-secondary"> Pendiente </span>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <article class="card admin-card h-100">
+            <div class="card-body">
+              <i class="bi bi-people icono-admin"></i>
+
+              <h2 class="card-title h4 mt-3">Usuarios</h2>
+
+              <p class="card-text">Consultar, editar y eliminar cuentas.</p>
+
+              <span class="badge text-bg-secondary"> Pendiente </span>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <section id="seccion-consultas" class="mt-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h2 class="h3 mb-0">Consultas recibidas</h2>
+
+          <span id="total-consultas" class="badge text-bg-dark"> 0 </span>
+        </div>
+
+        <div id="sin-consultas" class="alert alert-info d-none">
+          Todavía no se han recibido consultas.
+        </div>
+
+        <div id="contenedor-tabla-consultas" class="table-responsive">
+          <table class="table table-striped table-hover align-middle">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Correo</th>
+                <th>Consulta</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+
+            <tbody id="tabla-consultas"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <mi-footer></mi-footer>
+
+    <script src="../componentes.js"></script>
+    <script src="function.js"></script>
+  </body>
+</html>

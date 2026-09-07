@@ -49,6 +49,7 @@ formularioRegistro.addEventListener("submit", function (evento) {
   apellido: apellido,
   email: email,
   password: password,
+  rol: "cliente",
   direccion: direccion,
   tipoPropiedad: tipoPropiedad,
   region: region,

@@ -17,24 +17,31 @@
       <div class="tarjeta-registro">
         <h2 class="titulo-registro">Contacto</h2>
         <p class="text-center text-muted mb-4">Pastelería 1000 Sabores</p>
+        <div id="mensaje-contacto" class="alert d-none" role="alert"></div>
 
         <form id="form-contacto">
           <div class="campo-grupo">
-            <label for="correo-contacto" class="form-label">Dirección Mail</label>
+            <label for="correo-contacto" class="form-label"
+              >Dirección Mail</label
+            >
             <input
               type="email"
               class="form-control"
               id="correo-contacto"
+              name="correo"
               placeholder="name@example.com"
               required
             />
           </div>
 
           <div class="campo-grupo">
-            <label for="consulta-contacto" class="form-label">Ingrese su consulta</label>
+            <label for="consulta-contacto" class="form-label"
+              >Ingrese su consulta</label
+            >
             <textarea
               class="form-control"
               id="consulta-contacto"
+              name="mensaje"
               rows="6"
               placeholder="Escriba su consulta aquí..."
               required

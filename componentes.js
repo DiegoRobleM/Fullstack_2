@@ -57,6 +57,20 @@ class MiNavbar extends HTMLElement {
       }
     }
 
+    const enlaceAdministrador =
+      usuarioActivo && usuarioActivo.rol === "admin"
+        ? `
+      <li>
+        <a
+          class="dropdown-item"
+          href="../Administrador/index.html"
+        >
+          Panel de administración
+        </a>
+      </li>
+    `
+        : "";
+
     const menuSesion = usuarioActivo
       ? `
     <li class="nav-item dropdown">
@@ -67,7 +81,7 @@ class MiNavbar extends HTMLElement {
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
-        <i class="bi bi-person-circle"></i>
+        <i></i>
         <span id="nombre-usuario-navbar"></span>
       </a>
 
@@ -80,6 +94,8 @@ class MiNavbar extends HTMLElement {
             Mi perfil
           </a>
         </li>
+        
+        ${enlaceAdministrador}
 
         <li>
           <button
@@ -157,23 +173,11 @@ class MiNavbar extends HTMLElement {
                     <a class="nav-link" href="../SobreNosotros/sobrenosotros.html">Sobre nosotros </a>
                   </li>
 
-                  ${menuSesion}
+                  ${menuSesion} 
                 </ul>
                 
 
                 <div class="d-flex align-items-center ms-auto">
-
-                  <form class="d-flex" role="search">
-                      <input
-                          class="form-control me-2"
-                          type="search"
-                          placeholder="Buscar..."
-                      />
-
-                      <button class="btn btn-outline-dark btn-zoom" type="submit">
-                      Buscar
-                      </button>
-                  </form>
 
                   <a
                       href="../Carrito/carrito.html"

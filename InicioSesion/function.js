@@ -39,6 +39,7 @@ const usuarioActivo = {
     nombre: usuarioEncontrado.nombre,
     apellido: usuarioEncontrado.apellido,
     email: usuarioEncontrado.email,
+    rol: usuarioEncontrado.rol || "cliente",
     direccion : usuarioEncontrado.direccion,
     tipoPropiedad: usuarioEncontrado.tipoPropiedad,
     region: usuarioEncontrado.region,
