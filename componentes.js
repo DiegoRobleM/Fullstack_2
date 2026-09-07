@@ -95,6 +95,10 @@ class MiNavbar extends HTMLElement {
                   </li>
 
                   <li class="nav-item">
+                    <a class="nav-link" href="../PerfilUsuario/index.html">Mi perfil </a>
+                  </li>
+
+                  <li class="nav-item">
                     <a class="nav-link" href="../SobreNosotros/sobrenosotros.html">Sobre nosotros </a>
                   </li>
                 </ul>

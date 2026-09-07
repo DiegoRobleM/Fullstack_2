@@ -1,68 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=+, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../globalstyle.css">
-    <link rel="stylesheet" href="registro.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro - Pastelería 1000 Sabores</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../globalstyle.css">
+  <link rel="stylesheet" href="registro.css">
 </head>
 
-<body style="background-color: #fff5e1">
-    <mi-navbar></mi-navbar>
-    <main>
-        <form>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputEmail4">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="inputPassword4">Password</label>
-                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="inputAddress">Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-            </div>
-            <div class="form-group">
-                <label for="inputAddress2">Address 2</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputCity">City</label>
-                    <input type="text" class="form-control" id="inputCity">
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="inputState">State</label>
-                    <select id="inputState" class="form-control">
-                        <option selected>Choose...</option>
-                        <option>...</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="inputZip">Zip</label>
-                    <input type="text" class="form-control" id="inputZip">
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                        Check me out
-                    </label>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
-        </form>
+  <body style="background-color: #fff5e1">
+  <mi-navbar></mi-navbar>
 
-    </main>
-    <mi-footer></mi-footer>
-    <script src="../componentes.js"></script>
-    <script src="registro.js"></script>
+  <main class="contenedor-registro">
+    <div class="tarjeta-registro">
+      <h2 class="titulo-registro">Registro de Usuario</h2>
+      
+      <form>
+        <div class="campo-grupo">
+          <label class="form-label">1. Nombre</label>
+          <div class="row g-2">
+            <div class="col-6">
+              <input type="text" class="form-control" placeholder="Nombre completo">
+            </div>
+            <div class="col-6">
+              <input type="text" class="form-control" placeholder="Apellido">
+            </div>
+          </div>
+        </div>
+        <div class="campo-grupo">
+          <label for="inputEmail" class="form-label">2.Correo electrónico</label>
+          <input type="email" class="form-control" id="inputEmail" placeholder="Escribe aquí tu Email">
+        </div>
+        <div class="campo-grupo">
+          <label for="inputPassword" class="form-label">3. Contraseña</label>
+          <input type="password" class="form-control" id="inputPassword" placeholder="Escribe aquí tu contraseña">
+        </div>
+        <div class="campo-grupo">
+          <label for="inputAddress" class="form-label">4.Dirección de envío</label>
+          <input type="text" class="form-control mb-2" id="inputAddress" placeholder="Escribe aquí tu dirección">
+          <input type="text" class="form-control" id="inputAddress2" placeholder="Tipo de propiedad (Departamento, casa, etc.)">
+        </div>
+        <div class="campo-grupo">
+          <label class="form-label">5. Dirección</label>
+          <div class="row g-2">
+            <div class="col-md-6">
+              <select id="inputState" class="form-select">
+                <option value="" selected>Seleccione una región</option>
+                <option value="antofagasta">Antofagasta</option>
+                <option value="arica-y-parinacota">Arica y Parinacota</option>
+                <option value="atacama">Atacama</option>
+                <option value="aysen">Aysén del General Carlos Ibáñez del Campo</option>
+                <option value="biobio">Biobío</option>
+                <option value="coquimbo">Coquimbo</option>
+                <option value="la-araucania">La Araucanía</option>
+                <option value="o-higgins">Libertador General Bernardo O'Higgins</option>
+                <option value="los-lagos">Los Lagos</option>
+                <option value="los-rios">Los Ríos</option>
+                <option value="magallanes">Magallanes y de la Antártica Chilena</option>
+                <option value="maule">Maule</option>
+                <option value="nuble">Ñuble</option>
+                <option value="metropolitana">Región Metropolitana de Santiago</option>
+                <option value="tarapaca">Tarapacá</option>
+                <option value="valparaiso">Valparaíso</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <input type="text" class="form-control" id="inputComuna" placeholder="Comuna">
+            </div>
+          </div>
+        </div>
+        <div class="campo-grupo mt-3">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+              Guardar mis datos para futuras compras
+            </label>
+          </div>
+        </div>
+        <div class="d-grid gap-2 mt-4">
+          <button type="submit" class="btn btn-registrar btn-zoom">Registrarse</button>
+          <a href="../InicioSesion/iniciosesion.html" class="text-center text-decoration-none mt-2 text-muted small">¿Ya tienes cuenta? Inicia Sesión aquí</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <mi-footer></mi-footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../componentes.js"></script>
+  <script src="registro.js"></script>
 </body>
 
 </html>

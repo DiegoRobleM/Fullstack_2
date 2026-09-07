@@ -1,61 +1,74 @@
-header .navbar-brand {
-  color: #3f2b09 !important; 
-}
-
-header .navbar-brand:hover {
-  color: #d1869d !important; 
-  transition: color 1s;
-}
-
-header .nav-link {
-  color: #3f2b09 !important; 
-}
-
-header .nav-link:hover {
-  color: #d1869d !important; 
-  transition: color 1s;
-}   
-
-.card{
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #ccc;
-    width: 300px;
-    margin: 10px auto;
-    text-align: center;
-    color: #3f2b09;
-    background-color: #dae2ec;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.card small {
-  display: block;
-  color: #3f2b09;
-  font-size: 12px;
-  margin-bottom: 8px;
-}
-
-.contenedor-btn {
-  display: flex; 
+.contenedor-registro {
+  display: flex;
   justify-content: center;
-  gap: 10px; 
-  margin-top: 15px;
+  align-items: center;
+  padding: 40px 15px;
+}
+.tarjeta-registro {
+  background-color: #fffef6;
+  padding: 40px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 650px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
 }
 
-.contenedor-InicioSesion{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.titulo-registro {
+    font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #2c180e;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.footer-contenido{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.campo-grupo {
+  margin-bottom: 22px;
+}
+.campo-grupo .form-label {
+  font-weight: 600;
+  color: #2b2b2b;
+  font-size: 1rem;
+  margin-bottom: 8px;
+  display: block;
+}
+.tarjeta-registro .form-control,
+.tarjeta-registro .form-select {
+  background-color: #ded6c5;
+  border: 1px solid #c8beac;
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: #80736c;
+  font-size: 0.95rem;
 }
 
-.footer-contenido info{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.btn-InicioSesion {
+    background-color: #5c3d2e;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-Registrarse {
+    background-color: #5c3d2e;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-InicioSesion:hover,
+.btn-Registrarse:hover{
+    background-color: #3f2b09;
+    color: #ffffff;
+    transition: background-color 1s ease, color 0.3s ease;
 }
