@@ -28,7 +28,7 @@ function mostrarCarrito() {
         <div class="card-body d-flex align-items-center gap-4">
 
             <img
-                src="../Pasteleria/${producto.imagen}"
+                src="${producto.imagen}"
                 alt="${producto.titulo}"
                 class="imagen-carrito"
             >

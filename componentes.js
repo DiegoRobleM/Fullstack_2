@@ -1,11 +1,15 @@
+const bootstrapScript = document.createElement("script");
+
+bootstrapScript.src =
+  "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js";
+
+document.head.appendChild(bootstrapScript);
 
 class MiFooter extends HTMLElement {
-    connectedCallback() {
+  connectedCallback() {
+    const año = new Date().getFullYear();
 
-        const año = new Date().getFullYear();
-
-        
-        this.innerHTML = `
+    this.innerHTML = `
         <footer class="bg-light py-3">
             <div class="container d-flex justify-content-center align-items-center gap-4">
 
@@ -31,7 +35,7 @@ class MiFooter extends HTMLElement {
             </div>
         </footer>
         `;
-    }
+  }
 }
 
 customElements.define("mi-footer", MiFooter);
@@ -71,7 +75,7 @@ class MiNavbar extends HTMLElement {
                       <li><a class="dropdown-item" href="../Pasteleria/pasteleria.html">Pastelería</a></li>
                       <li><a class="dropdown-item" href="../SinAzucar/sugar.html">Sin azúcar</a></li>
                       <li><a class="dropdown-item" href="../Panaderia/index.html">Panadería</a></li>
-                      <li><a class="dropdown-item" href="../salados/index.html">Salados</a></li>
+                      <li><a class="dropdown-item" href="../Salados/index.html">Salados</a></li>
                       <li><hr class="dropdown-divider" /></li>
                       <li><a class="dropdown-item" href="#">Ofertas </a></li>
                     </ul>
@@ -122,20 +126,7 @@ class MiNavbar extends HTMLElement {
           </nav>
         </header>
         `;
-        const activarDropdowns = () => {
-      if (typeof bootstrap !== "undefined") {
-        const elementosDropdown = this.querySelectorAll('[data-bs-toggle="dropdown"]');
-        elementosDropdown.forEach((el) => new bootstrap.Dropdown(el));
-      }
-    };
-
-    if (document.readyState === "complete") {
-      activarDropdowns();
-    } else {
-      window.addEventListener("load", activarDropdowns);
-    }
   }
-  
 }
 
 customElements.define("mi-navbar", MiNavbar);

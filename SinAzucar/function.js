@@ -1,126 +1,23 @@
-const productos = [
+window.productos = [
     {
-        id: 1,
+        id: "sin-azucar-1",
         titulo: "Kuchen",
-        imagen: "../SinAzucar/img/kuchen.jpg",
-        descripcion: "Kuchen de frambuesa arandano sin azucar, relleno con frambuesas, arandanos y cubierto con crema de vainilla",
+        imagen: "../SinAzucar/img/kuchen.JPG",
+        descripcion: "Kuchen de frambuesa y arándanos sin azúcar, relleno con frutas y cubierto con crema de vainilla.",
         precio: 23500
     },
     {
-        id: 2,
-        titulo: "Pastel de Frutilla",
-        imagen: "../SinAzucar/img/alfajor.jpg",
+        id: "sin-azucar-2",
+        titulo: "Alfajor de chocolate sin azúcar",
+        imagen: "../SinAzucar/img/alfajor.JPG",
         descripcion: "Alfajor de chocolate relleno con manjar y bañado en chocolate (imagen referencial)",
         precio: 3500
     },
     {
-        id: 3,
+        id: "sin-azucar-3",
         titulo: "Kuchen de durazno",
-        imagen: "../SinAzucar/img/kudur.jpg",
-        descripcion: "Kuchen de durazno sin azucar,con base de masa de kuchen rellena con trozos de durazno y crema de vainilla.",
+        imagen: "../SinAzucar/img/kudur.JPG",
+        descripcion: "Kuchen de durazno sin azúcar, con una base de masa rellena con trozos de durazno y crema de vainilla.",
         precio: 20000
     }
 ];
-
-
-const contenedorProductos =
-    document.querySelector(".contenedorProductos");
-
-
-for (const producto of productos) {
-
-    const card = document.createElement("div");
-    card.className = "card";
-
-    card.innerHTML = `
-        <img
-            src="${producto.imagen}"
-            alt="${producto.titulo}"
-            class="card-img-top"
-        >
-
-        <div class="card-body">
-
-            <h5 class="card-title">
-                ${producto.titulo}
-            </h5>
-
-            <p class="card-text text-muted">
-                ${producto.descripcion}
-            </p>
-
-            <p class="card-text">
-                Precio: $${producto.precio.toLocaleString("es-CL")}
-            </p>
-
-            <div class="contenedor-btn">
-
-                <button
-                    type="button"
-                    class="btn btn-outline-info btn-ver"
-                >
-                    Ver
-                </button>
-
-                <button
-                    type="button"
-                    class="btn btn-outline-success btn-agregar"
-                >
-                    Agregar al carrito
-                </button>
-
-            </div>
-
-        </div>
-    `;
-
-
-    const btnVer = card.querySelector(".btn-ver");
-
-    btnVer.addEventListener("click", function () {
-        console.log("Producto seleccionado:", producto);
-    });
-
-
-    const btnAgregar = card.querySelector(".btn-agregar");
-
-    btnAgregar.addEventListener("click", function () {
-        guardar(producto);
-    });
-
-
-    contenedorProductos.appendChild(card);
-}
-
-
-
-const LLAVE = "carrito";
-
-
-function guardar(producto) {
-
-    let carrito =
-        JSON.parse(localStorage.getItem(LLAVE)) || [];
-
-    const productoExistente =
-        carrito.find(item => item.id === producto.id);
-
-    if (productoExistente) {
-
-        productoExistente.cantidad++;
-
-    } else {
-
-        producto.cantidad = 1;
-
-        carrito.push(producto);
-
-    }
-
-    localStorage.setItem(
-        LLAVE,
-        JSON.stringify(carrito)
-    );
-
-    console.log("Producto agregado:", producto);
-}
