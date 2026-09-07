@@ -30,8 +30,8 @@ if (!usuarioEncontrado){
     mostrarMensaje("El correo o la contraseña son incorrectos.","danger");
 
 
-document.querySelector("#inputPasword").value = "";
-document.querySelector("#inputPasword").focus();
+document.querySelector("#inputPassword").value = "";
+document.querySelector("#inputPassword").focus();
 return;
 }
 
@@ -66,6 +66,6 @@ mostrarMensaje(
 );
 
 setTimeout(function(){
-    window.location.href = "../perfilUsuario/index.html";
+    window.location.href = "../PerfilUsuario/index.html";
 },1500);
 });

@@ -1,46 +1,69 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Perfil de Usuario - Pastelería 1000 Sabores</title>
 
-    <link rel="stylesheet" href="../globalstyle.css">
-    <link rel="stylesheet" href="Style.css">
-</head>
+    <link rel="stylesheet" href="../globalstyle.css" />
+    <link rel="stylesheet" href="Style.css" />
+  </head>
 
-<body style="background-color: #fff5e1">
+  <body style="background-color: #fff5e1">
     <mi-navbar></mi-navbar>
     <main class="contenedor-Perfil">
-        <div class="tarjeta-perfil text-center">
-            <h1 class="titulo-Perfil">Perfil de usuario <i class="bi bi-cup-hot-fill"></i></h1>
+      <div class="tarjeta-perfil text-center">
+        <h1 class="titulo-Perfil">
+          Perfil de usuario <i class="bi bi-cup-hot-fill"></i>
+        </h1>
 
-            <div class="contenedor-dentro">
-
-                <div class="mt-4">
-                    <img src="img/perfil.JPG" alt="Imagen de usuario" class="img-Perfil">
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <div class="card-header">
-                        Nombre de usuario
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Email del usuario</li>
-                        <li class="list-group-item">Dirección del usuario</li>
-                        <li class="list-group-item">Ultimo pedido</li>
-                    </ul>
-                </div>
+        <div class="contenedor-dentro">
+          <div class="mt-4">
+            <img
+              src="img/perfil.JPG"
+              alt="Imagen de usuario"
+              class="img-Perfil"
+            />
+          </div>
+          <div class="card" style="width: 18rem">
+            <div class="card-header" id="perfil-nombre">
+              Cargando usuario...
             </div>
+
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <strong>Correo:</strong>
+                <span id="perfil-email"></span>
+              </li>
+
+              <li class="list-group-item">
+                <strong>Dirección:</strong>
+                <span id="perfil-direccion"></span>
+              </li>
+
+              <li class="list-group-item">
+                <strong>Último pedido:</strong>
+                Sin pedidos registrados
+              </li>
+            </ul>
+
+            <div class="card-body">
+              <button
+                type="button"
+                id="btn-cerrar-sesion"
+                class="btn btn-outline-danger w-100"
+              >
+                Cerrar sesión
+              </button>
+            </div>
+          </div>
         </div>
-
-
+      </div>
     </main>
 
     <mi-footer></mi-footer>
 
     <script src="../componentes.js"></script>
     <script src="function.js"></script>
-</body>
-
+  </body>
 </html>
