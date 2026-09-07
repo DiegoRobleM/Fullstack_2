@@ -1,12 +1,4 @@
 
-const bootstrapScript = document.createElement("script");
-
-bootstrapScript.src =
-    "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js";
-
-document.head.appendChild(bootstrapScript);
-
-
 class MiFooter extends HTMLElement {
     connectedCallback() {
 
@@ -77,10 +69,9 @@ class MiNavbar extends HTMLElement {
 
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="../Pasteleria/pasteleria.html">Pastelería</a></li>
-                      <li><a class="dropdown-item" href="#">Sin azúcar</a></li>
-                      <li><a class="dropdown-item" href="#">Panadería</a></li>
-                      <li><a class="dropdown-item" href="#">Salados</a></li>
-                      <li><a class="dropdown-item" href="#">Cafetería</a></li>
+                      <li><a class="dropdown-item" href="../SinAzucar/sugar.html">Sin azúcar</a></li>
+                      <li><a class="dropdown-item" href="../Panaderia/index.html">Panadería</a></li>
+                      <li><a class="dropdown-item" href="../salados/index.html">Salados</a></li>
                       <li><hr class="dropdown-divider" /></li>
                       <li><a class="dropdown-item" href="#">Ofertas </a></li>
                     </ul>
@@ -112,11 +103,8 @@ class MiNavbar extends HTMLElement {
                           placeholder="Buscar..."
                       />
 
-                      <button
-                          class="btn btn-outline-success"
-                          type="submit"
-                      >
-                          Buscar
+                      <button class="btn btn-outline-dark btn-zoom" type="submit">
+                      Buscar
                       </button>
                   </form>
 
@@ -134,7 +122,20 @@ class MiNavbar extends HTMLElement {
           </nav>
         </header>
         `;
+        const activarDropdowns = () => {
+      if (typeof bootstrap !== "undefined") {
+        const elementosDropdown = this.querySelectorAll('[data-bs-toggle="dropdown"]');
+        elementosDropdown.forEach((el) => new bootstrap.Dropdown(el));
+      }
+    };
+
+    if (document.readyState === "complete") {
+      activarDropdowns();
+    } else {
+      window.addEventListener("load", activarDropdowns);
+    }
   }
+  
 }
 
 customElements.define("mi-navbar", MiNavbar);
