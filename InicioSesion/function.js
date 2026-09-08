@@ -1,72 +1,76 @@
 const formularioInicioSesion = document.querySelector("#form-inicio-sesion");
 
-const mensajeLogin = document.querySelector("#mensaje-login")
+const mensajeLogin = document.querySelector("#mensaje-login");
 
-function mostrarMensaje(texto,tipo){
-    mensajeLogin.textContent = texto;
-    mensajeLogin.className = `alert alert-${tipo}`;
+function mostrarMensaje(texto, tipo) {
+  mensajeLogin.textContent = texto;
+  mensajeLogin.className = `alert alert-${tipo}`;
 }
 
-formularioInicioSesion.addEventListener("submit", function(evento){
-    evento.preventDefault();
+function obtenerUsuariosRegistrados() {
+  try {
+    const textoGuardado = localStorage.getItem("usuariosRegistrados");
 
+    const datosGuardados = JSON.parse(textoGuardado);
 
-const datosFormulario = new FormData(formularioInicioSesion);
+    return Array.isArray(datosGuardados) ? datosGuardados : [];
+  } catch (error) {
+    console.warn("No se pudieron leer los usuarios registrados.");
 
-const email = datosFormulario.get("email").trim().toLowerCase();
-
-const password = datosFormulario.get("password");
-const recordarCuenta = datosFormulario.has("recordarCuenta");
-
-const usuarios = JSON.parse(localStorage.getItem("usuariosRegistrados")) || [];
-
-const usuarioEncontrado = usuarios.find(function (usuario){
-    return(
-        usuario.email === email && usuario.password === password
-    );
-});
-
-if (!usuarioEncontrado){
-    mostrarMensaje("El correo o la contraseña son incorrectos.","danger");
-
-
-document.querySelector("#inputPassword").value = "";
-document.querySelector("#inputPassword").focus();
-return;
+    return [];
+  }
 }
 
-const usuarioActivo = {
+formularioInicioSesion.addEventListener("submit", function (evento) {
+  evento.preventDefault();
+
+  const datosFormulario = new FormData(formularioInicioSesion);
+
+  const email = datosFormulario.get("email").trim().toLowerCase();
+
+  const password = datosFormulario.get("password");
+  const recordarCuenta = datosFormulario.has("recordarCuenta");
+
+  const usuarios = obtenerUsuariosRegistrados();
+
+  const usuarioEncontrado = usuarios.find(function (usuario) {
+    return usuario && usuario.email === email && usuario.password === password;
+  });
+
+  if (!usuarioEncontrado) {
+    mostrarMensaje("El correo o la contraseña son incorrectos.", "danger");
+
+    document.querySelector("#inputPassword").value = "";
+    document.querySelector("#inputPassword").focus();
+    return;
+  }
+
+  const usuarioActivo = {
     nombre: usuarioEncontrado.nombre,
     apellido: usuarioEncontrado.apellido,
     email: usuarioEncontrado.email,
     rol: usuarioEncontrado.rol || "cliente",
-    direccion : usuarioEncontrado.direccion,
+    direccion: usuarioEncontrado.direccion,
     tipoPropiedad: usuarioEncontrado.tipoPropiedad,
     region: usuarioEncontrado.region,
-    comuna: usuarioEncontrado.comuna
-};
+    comuna: usuarioEncontrado.comuna,
+  };
 
-sessionStorage.removeItem("usuarioActivo");
-localStorage.removeItem("usuarioActivo");
+  sessionStorage.removeItem("usuarioActivo");
+  localStorage.removeItem("usuarioActivo");
 
-if(recordarCuenta){
-    localStorage.setItem(
-        "usuarioActivo",
-        JSON.stringify(usuarioActivo)
-    );
-}else{
-    sessionStorage.setItem(
-        "usuarioActivo",
-        JSON.stringify(usuarioActivo)
-    );
-}
+  if (recordarCuenta) {
+    localStorage.setItem("usuarioActivo", JSON.stringify(usuarioActivo));
+  } else {
+    sessionStorage.setItem("usuarioActivo", JSON.stringify(usuarioActivo));
+  }
 
-mostrarMensaje(
+  mostrarMensaje(
     `Bienvenido, ${usuarioActivo.nombre}. Ingreso correcto.`,
-    "success"
-);
+    "success",
+  );
 
-setTimeout(function(){
+  setTimeout(function () {
     window.location.href = "../PerfilUsuario/index.html";
-},1500);
+  }, 1500);
 });
