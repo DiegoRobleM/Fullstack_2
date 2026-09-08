@@ -58,8 +58,27 @@ for (const producto of productos) {
 
 const LLAVE = "carrito";
 
+function obtenerCarrito() {
+  try {
+    const textoGuardado = localStorage.getItem(LLAVE);
+    const datosGuardados = JSON.parse(textoGuardado);
+
+    if (Array.isArray(datosGuardados)) {
+      return datosGuardados;
+    }
+
+    return [];
+  } catch (error) {
+    console.warn(
+      "No se pudo leer el carrito guardado. Se iniciará uno nuevo."
+    );
+
+    return [];
+  }
+}
+
 function guardar(producto) {
-  const carrito = JSON.parse(localStorage.getItem(LLAVE)) || [];
+  const carrito = obtenerCarrito();
   const productoExistente = carrito.find((item) => item.id === producto.id);
 
   if (productoExistente) {

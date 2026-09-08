@@ -1,6 +1,25 @@
 const LLAVE = "carrito";
 
-let carrito = JSON.parse(localStorage.getItem(LLAVE)) || [];
+function obtenerCarrito() {
+  try {
+    const textoGuardado = localStorage.getItem(LLAVE);
+    const datosGuardados = JSON.parse(textoGuardado);
+
+    if (Array.isArray(datosGuardados)) {
+      return datosGuardados;
+    } else {
+      return [];
+    }
+  } catch (error) {
+    console.warn(
+      "No se pudo leer el carrito guardado. Se mostrará vacío."
+    );
+
+    return [];
+  }
+}
+
+let carrito = obtenerCarrito();
 
 const contenedorCarrito = document.getElementById("carrito");
 
