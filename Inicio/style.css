@@ -58,3 +58,9 @@ h2,
     transition: background-color 1s ease, color 0.3s ease;
 
 }
+
+.btnesCentral {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
