@@ -32,11 +32,19 @@
     cursor: pointer;
 }
 
+.contenedor-btn .btn-agregar:hover,
+.contenedor-btn .btn-ver:hover{
+    background-color: #3f2b09;
+    color: #ffffff;
+    transition: background-color 1s ease, color 0.3s ease;
+}
+
+
 #toast-notificacion {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background-color: #3f2b09; 
+    background-color: #e47ea5; 
     color: white;
     padding: 15px 25px;
     border-radius: 8px;
