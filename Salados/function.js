@@ -2,7 +2,7 @@ window.productos = [
     {
         id: "salados-1",
         titulo: "Quiche de alcachofa y palmitos",
-        imagen: "../Salados/img/quiche.JPG",
+        imagen: "../Salados/img/Quiche.JPG",
         descripcion: "Quiche de alcachofa y palmitos. Masa con suave y cremoso relleno de fondos de alcachofa, palmitos, ricota y tomates cherry.",
         precio: 29900
     },
