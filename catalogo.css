@@ -7,5 +7,27 @@
 }
 
 .card {
-    width: 18rem;
+    width: 20rem;
+}
+
+.contenedor-btn {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+
+.contenedor-btn .btn-agregar,
+.contenedor-btn .btn-ver {
+    display: inline-block;
+    margin: 5px;
+    justify-content: center;
+     background-color: #5c3d2e;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
 }
