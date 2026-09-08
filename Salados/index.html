@@ -1,29 +1,35 @@
 <!doctype html>
 
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Productos</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="../catalogo.css" />
-    <link rel="stylesheet" href="../globalstyle.css" />
-  </head>
+  <title>Productos</title>
 
-  <body style="background-color: #fff5e1">
-    <mi-navbar></mi-navbar>
+  <link rel="stylesheet" href="../catalogo.css" />
+  <link rel="stylesheet" href="../globalstyle.css" />
+</head>
 
-    <main>
-      <section id="productos">
-        <div class="contenedorProductos"></div>
-      </section>
-    </main>
+<body style="background-color: #fff5e1">
+  <mi-navbar></mi-navbar>
 
-    <mi-footer></mi-footer>
+  <main>
+    <section id="productos">
+      <div class="contenedorProductos"></div>
+    </section>
+  </main>
 
-    <script src="../componentes.js"></script>
-    <script src="function.js"></script>
-    <script src="../catalogo.js"></script>
-  </body>
+  <div id="toast-notificacion" class="toast-oculto">
+    🍰 ¡PRPDUCTO AGREGADO A TU CARRITO!
+  </div>
+  
+  <mi-footer></mi-footer>
+
+  <script src="../componentes.js"></script>
+  <script src="function.js"></script>
+  <script src="../catalogo.js"></script>
+</body>
+
 </html>

@@ -51,6 +51,7 @@ for (const producto of productos) {
     const btnAgregar = card.querySelector(".btn-agregar");
     btnAgregar.addEventListener("click", function () {
         guardar(producto);
+        mostrarToast(); //EN ESTA PARTE ACTIVAMOS EL MENSAJE
     });
 
     contenedorProductos.appendChild(card);
@@ -71,4 +72,14 @@ function guardar(producto) {
 
     localStorage.setItem(LLAVE, JSON.stringify(carrito));
     console.log("Producto agregado:", producto);
+}
+
+function mostrarToast() {
+    const toast = document.getElementById("toast-notificacion");
+    // AQUI SE CAMBIA LA CLASE PARA QUE SE HAGA VISIBLE
+    toast.className = "toast-visible";
+    // DESPUES DE 3 SEGUNDOS DESAPARECE
+    setTimeout(() => {
+        toast.className = "toast-oculto";
+    }, 3000);
 }
