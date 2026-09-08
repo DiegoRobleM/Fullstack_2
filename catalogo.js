@@ -2,10 +2,10 @@ const productos = window.productos;
 const contenedorProductos = document.querySelector(".contenedorProductos");
 
 for (const producto of productos) {
-    const card = document.createElement("div");
-    card.className = "card";
+  const card = document.createElement("div");
+  card.className = "card";
 
-    card.innerHTML = `
+  card.innerHTML = `
         <img
             src="${producto.imagen}"
             alt="${producto.titulo}"
@@ -43,32 +43,36 @@ for (const producto of productos) {
         </div>
     `;
 
-    const btnVer = card.querySelector(".btn-ver");
-    btnVer.addEventListener("click", function () {
-        console.log("Producto seleccionado:", producto);
-    });
+  const btnVer = card.querySelector(".btn-ver");
+  btnVer.addEventListener("click", function () {
+    console.log("Producto seleccionado:", producto);
+  });
 
-    const btnAgregar = card.querySelector(".btn-agregar");
-    btnAgregar.addEventListener("click", function () {
-        guardar(producto);
-    });
+  const btnAgregar = card.querySelector(".btn-agregar");
+  btnAgregar.addEventListener("click", function () {
+    guardar(producto);
+  });
 
-    contenedorProductos.appendChild(card);
+  contenedorProductos.appendChild(card);
 }
 
 const LLAVE = "carrito";
 
 function guardar(producto) {
-    const carrito = JSON.parse(localStorage.getItem(LLAVE)) || [];
-    const productoExistente = carrito.find(item => item.id === producto.id);
+  const carrito = JSON.parse(localStorage.getItem(LLAVE)) || [];
+  const productoExistente = carrito.find((item) => item.id === producto.id);
 
-    if (productoExistente) {
-        productoExistente.cantidad++;
-    } else {
-        producto.cantidad = 1;
-        carrito.push(producto);
-    }
+  if (productoExistente) {
+    productoExistente.cantidad++;
+  } else {
+    const nuevoItem = {
+      ...producto,
+      cantidad: 1,
+    };
 
-    localStorage.setItem(LLAVE, JSON.stringify(carrito));
-    console.log("Producto agregado:", producto);
+    carrito.push(nuevoItem);
+  }
+
+  localStorage.setItem(LLAVE, JSON.stringify(carrito));
+  console.log("Producto agregado:", producto);
 }
