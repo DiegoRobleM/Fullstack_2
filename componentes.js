@@ -139,6 +139,9 @@ class MiNavbar extends HTMLElement {
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#menu"
+                aria-controls="menu"
+                aria-expanded="false"
+                aria-label="Mostrar u ocultar menú de navegación"
               >
                 <span class="navbar-toggler-icon"></span>
               </button>
