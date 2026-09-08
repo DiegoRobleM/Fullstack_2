@@ -2,10 +2,10 @@ const productos = window.productos;
 const contenedorProductos = document.querySelector(".contenedorProductos");
 
 for (const producto of productos) {
-    const card = document.createElement("div");
-    card.className = "card";
+  const card = document.createElement("div");
+  card.className = "card";
 
-    card.innerHTML = `
+  card.innerHTML = `
         <img
             src="${producto.imagen}"
             alt="${producto.titulo}"
@@ -43,10 +43,10 @@ for (const producto of productos) {
         </div>
     `;
 
-    const btnVer = card.querySelector(".btn-ver");
-    btnVer.addEventListener("click", function () {
-        console.log("Producto seleccionado:", producto);
-    });
+  const btnVer = card.querySelector(".btn-ver");
+  btnVer.addEventListener("click", function () {
+    console.log("Producto seleccionado:", producto);
+  });
 
     const btnAgregar = card.querySelector(".btn-agregar");
     btnAgregar.addEventListener("click", function () {
@@ -54,24 +54,47 @@ for (const producto of productos) {
         mostrarToast(); //EN ESTA PARTE ACTIVAMOS EL MENSAJE
     });
 
-    contenedorProductos.appendChild(card);
+  contenedorProductos.appendChild(card);
 }
 
 const LLAVE = "carrito";
 
-function guardar(producto) {
-    const carrito = JSON.parse(localStorage.getItem(LLAVE)) || [];
-    const productoExistente = carrito.find(item => item.id === producto.id);
+function obtenerCarrito() {
+  try {
+    const textoGuardado = localStorage.getItem(LLAVE);
+    const datosGuardados = JSON.parse(textoGuardado);
 
-    if (productoExistente) {
-        productoExistente.cantidad++;
-    } else {
-        producto.cantidad = 1;
-        carrito.push(producto);
+    if (Array.isArray(datosGuardados)) {
+      return datosGuardados;
     }
 
-    localStorage.setItem(LLAVE, JSON.stringify(carrito));
-    console.log("Producto agregado:", producto);
+    return [];
+  } catch (error) {
+    console.warn(
+      "No se pudo leer el carrito guardado. Se iniciará uno nuevo."
+    );
+
+    return [];
+  }
+}
+
+function guardar(producto) {
+  const carrito = obtenerCarrito();
+  const productoExistente = carrito.find((item) => item.id === producto.id);
+
+  if (productoExistente) {
+    productoExistente.cantidad++;
+  } else {
+    const nuevoItem = {
+      ...producto,
+      cantidad: 1,
+    };
+
+    carrito.push(nuevoItem);
+  }
+
+  localStorage.setItem(LLAVE, JSON.stringify(carrito));
+  console.log("Producto agregado:", producto);
 }
 
 function mostrarToast() {

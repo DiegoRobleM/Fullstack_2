@@ -1,6 +1,25 @@
 const LLAVE = "carrito";
 
-let carrito = JSON.parse(localStorage.getItem(LLAVE)) || [];
+function obtenerCarrito() {
+  try {
+    const textoGuardado = localStorage.getItem(LLAVE);
+    const datosGuardados = JSON.parse(textoGuardado);
+
+    if (Array.isArray(datosGuardados)) {
+      return datosGuardados;
+    } else {
+      return [];
+    }
+  } catch (error) {
+    console.warn(
+      "No se pudo leer el carrito guardado. Se mostrará vacío."
+    );
+
+    return [];
+  }
+}
+
+let carrito = obtenerCarrito();
 
 const contenedorCarrito = document.getElementById("carrito");
 
@@ -10,12 +29,23 @@ const botonVaciar = document.getElementById("btn-vaciar");
 
 function mostrarCarrito() {
   contenedorCarrito.innerHTML = "";
-  
+
   if (carrito.length === 0) {
     botonVaciar.classList.add("d-none");
-  } else {
-    botonVaciar.classList.remove("d-none");
+
+    const mensajeVacio = document.createElement("div");
+    mensajeVacio.className = "alert alert-info text-center";
+    mensajeVacio.setAttribute("role", "status");
+    mensajeVacio.textContent =
+      "Tu carrito está vacío. Agrega productos desde el catálogo.";
+
+    contenedorCarrito.appendChild(mensajeVacio);
+    totalElemento.textContent = "$0";
+
+    return;
   }
+
+  botonVaciar.classList.remove("d-none");
 
   let total = 0;
 
@@ -46,23 +76,25 @@ function mostrarCarrito() {
 
                 <div class="d-flex align-items-center gap-2">
 
-                    <button
-                        type="button"
-                        class="btn btn-outline-secondary btn-restar"
-                    >
-                        -
-                    </button>
+                  <button
+                      type="button"
+                      class="btn btn-outline-secondary btn-restar"
+                      aria-label="Disminuir cantidad de ${producto.titulo}"
+                  >
+                      -
+                  </button>
 
-                    <span>
-                        ${producto.cantidad}
-                    </span>
+                  <span>
+                      ${producto.cantidad}
+                  </span>
 
-                    <button
-                        type="button"
-                        class="btn btn-outline-secondary btn-sumar"
-                    >
-                        +
-                    </button>
+                  <button
+                      type="button"
+                      class="btn btn-outline-secondary btn-sumar"
+                      aria-label="Aumentar cantidad de ${producto.titulo}"
+                  >
+                      +
+                  </button>
 
                 </div>
 

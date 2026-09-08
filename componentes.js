@@ -10,7 +10,7 @@ class MiFooter extends HTMLElement {
     const año = new Date().getFullYear();
 
     this.innerHTML = `
-        <footer class="bg-light py-3">
+        <footer class="text-white py-3" style="background-color: #5c3d2e;">
             <div class="container d-flex justify-content-center align-items-center gap-4">
 
                 <p class="mb-0">
@@ -18,16 +18,16 @@ class MiFooter extends HTMLElement {
                 </p>
 
                 <nav class="d-flex gap-3">
-                    <a href="#" class="text-decoration-none text-dark">
+                    <a href="#" class="text-decoration-none text-white">
                         Política de Privacidad
                     </a>
 
-                    <a href="#" class="text-decoration-none text-dark">
+                    <a href="#" class="text-decoration-none text-white">
                         Términos de Servicio
                     </a>
 
                     <a href="../Contacto/contacto.html"
-                       class="text-decoration-none text-dark">
+                       class="text-decoration-none text-white">
                         Contacto
                     </a>
                 </nav>
@@ -75,7 +75,7 @@ class MiNavbar extends HTMLElement {
       ? `
     <li class="nav-item dropdown">
       <a
-        class="nav-link dropdown-toggle"
+        class="nav-link dropdown-toggle text-white"
         href="#"
         role="button"
         data-bs-toggle="dropdown"
@@ -112,7 +112,7 @@ class MiNavbar extends HTMLElement {
       : `
     <li class="nav-item">
       <a
-        class="nav-link"
+        class="nav-link text-white"
         href="../InicioSesion/iniciosesion.html"
       >
         Iniciar sesión
@@ -121,7 +121,7 @@ class MiNavbar extends HTMLElement {
 
     <li class="nav-item">
       <a
-        class="nav-link"
+        class="nav-link text-white"
         href="../RegistroUsuario/registro.html"
       >
         Registrarse
@@ -130,15 +130,18 @@ class MiNavbar extends HTMLElement {
   `;
     this.innerHTML = `
         <header>
-          <nav class="navbar navbar-expand-lg bg-light">
+          <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #5c3d2e;">
             <div class="container">
-              <a class="navbar-brand fw-bold" href="../Inicio/index.html">Pastelería 1000 Sabores</a>
+              <a class="navbar-brand fw-bold text-white" href="../Inicio/index.html">Pastelería 1000 Sabores</a>
 
               <button
-                class="navbar-toggler"
+                class="navbar-toggler border-white"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#menu"
+                aria-controls="menu"
+                aria-expanded="false"
+                aria-label="Mostrar u ocultar menú de navegación"
               >
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -146,12 +149,12 @@ class MiNavbar extends HTMLElement {
               <div class="collapse navbar-collapse" id="menu">
                 <ul class="navbar-nav me-auto">
                   <li class="nav-item">
-                    <a class="nav-link active" href="../Inicio/index.html">Inicio</a>
+                    <a class="nav-link active text-white" href="../Inicio/index.html">Inicio</a>
                   </li>
 
                   <li class="nav-item dropdown">
                     <a
-                      class="nav-link dropdown-toggle"
+                      class="nav-link dropdown-toggle text-white"
                       href="#"
                       data-bs-toggle="dropdown"
                       >Productos</a
@@ -166,11 +169,11 @@ class MiNavbar extends HTMLElement {
                   </li>
                   
                   <li class="nav-item">
-                    <a class="nav-link" href="../Contacto/contacto.html">Contacto </a>
+                    <a class="nav-link text-white" href="../Contacto/contacto.html">Contacto </a>
                   </li>
 
                   <li class="nav-item">
-                    <a class="nav-link" href="../SobreNosotros/sobrenosotros.html">Sobre nosotros </a>
+                    <a class="nav-link text-white" href="../SobreNosotros/sobrenosotros.html">Sobre nosotros </a>
                   </li>
 
                   ${menuSesion} 
@@ -181,7 +184,7 @@ class MiNavbar extends HTMLElement {
 
                   <a
                       href="../Carrito/carrito.html"
-                      class="btn btn-outline-dark ms-3"
+                      class="btn btn-outline-light ms-3"
                       title="Carrito de compras"
                   >
                       <i class="bi bi-cart3"></i>

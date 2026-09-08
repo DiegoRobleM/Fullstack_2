@@ -11,6 +11,26 @@ function mostrarMensaje(texto, tipo) {
   });
 }
 
+function obtenerUsuariosRegistrados() {
+  try {
+    const textoGuardado = localStorage.getItem(
+      "usuariosRegistrados"
+    );
+
+    const datosGuardados = JSON.parse(textoGuardado);
+
+    return Array.isArray(datosGuardados)
+      ? datosGuardados
+      : [];
+  } catch (error) {
+    console.warn(
+      "No se pudieron leer los usuarios registrados."
+    );
+
+    return [];
+  }
+}
+
 formularioRegistro.addEventListener("submit", function (evento) {
   evento.preventDefault();
 
@@ -27,12 +47,13 @@ formularioRegistro.addEventListener("submit", function (evento) {
   const guardarDatos = datosFormulario.has("guardarDatos");
 
 
-  const usuarios =
-  JSON.parse(localStorage.getItem("usuariosRegistrados")) || [];
+  const usuarios = obtenerUsuariosRegistrados();
   
   const correoRegistrado = usuarios.some(
-    (usuarioGuardado) => usuarioGuardado.email === email
-  );
+  (usuarioGuardado) =>
+    usuarioGuardado &&
+    usuarioGuardado.email === email
+);
 
   if (correoRegistrado) {
   mostrarMensaje(
