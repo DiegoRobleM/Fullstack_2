@@ -7,14 +7,44 @@
 }
 
 .card {
-    width: 18rem;
+    width: 20rem;
 }
+
+.contenedor-btn {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+
+.contenedor-btn .btn-agregar,
+.contenedor-btn .btn-ver {
+    display: inline-block;
+    margin: 5px;
+    justify-content: center;
+     background-color: #5c3d2e;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.contenedor-btn .btn-agregar:hover,
+.contenedor-btn .btn-ver:hover{
+    background-color: #3f2b09;
+    color: #ffffff;
+    transition: background-color 1s ease, color 0.3s ease;
+}
+
 
 #toast-notificacion {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background-color: #e47ec0; 
+    background-color: #e47ea5; 
     color: white;
     padding: 15px 25px;
     border-radius: 8px;

@@ -26,19 +26,12 @@ for (const producto of productos) {
             </p>
 
             <div class="contenedor-btn">
-                <button
-                    type="button"
-                    class="btn btn-outline-info btn-ver"
-                >
-                    Ver
-                </button>
-
-                <button
-                    type="button"
-                    class="btn btn-outline-success btn-agregar"
-                >
-                    Agregar al carrito
-                </button>
+              <button type="button" class="btn btn-ver">
+                  Ver
+              </button>
+              <button type="button" class="btn btn-agregar">
+                  Agregar al carrito
+              </button>
             </div>
         </div>
     `;
