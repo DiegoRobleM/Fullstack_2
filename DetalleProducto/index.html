@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Detalle de producto | Pastelería 1000 Sabores</title>
+
+    <link rel="stylesheet" href="../globalstyle.css" />
+    <link rel="stylesheet" href="Style.css" />
+  </head>
+
+  <body style="background-color: #fff5e1">
+    <mi-navbar></mi-navbar>
+
+    <main class="container my-5">
+      <div
+        id="mensaje-detalle"
+        class="alert alert-warning d-none"
+        role="alert"
+      ></div>
+
+      <section
+        id="detalle-producto"
+        class="row g-4 align-items-center"
+        aria-labelledby="detalle-titulo"
+      >
+        <div class="col-12 col-lg-6">
+          <img
+            id="detalle-imagen"
+            class="img-fluid rounded shadow-sm"
+            alt=""
+          />
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <p
+            id="detalle-categoria"
+            class="text-uppercase text-muted mb-2"
+          >
+            Categoría por cargar
+          </p>
+
+          <h1 id="detalle-titulo">
+            Cargando producto...
+          </h1>
+
+          <p
+            id="detalle-descripcion"
+            class="lead mt-3"
+          >
+            Cargando descripción...
+          </p>
+
+          <p class="fs-3 fw-bold mt-4">
+            <span id="detalle-precio">—</span>
+          </p>
+
+          <div class="mb-4">
+            <label
+              for="detalle-cantidad"
+              class="form-label fw-semibold"
+            >
+              Cantidad
+            </label>
+
+            <input
+              type="number"
+              id="detalle-cantidad"
+              class="form-control"
+              min="1"
+              value="1"
+            />
+          </div>
+
+          <div class="d-flex flex-wrap gap-3">
+            <button
+              type="button"
+              id="btn-agregar-detalle"
+              class="btn btn-outline-success"
+              disabled
+            >
+              Agregar al carrito
+            </button>
+
+            <button
+              type="button"
+              id="btn-volver-catalogo"
+              class="btn btn-outline-secondary"
+            >
+              Volver al catálogo
+            </button>
+          </div>
+
+          <div
+            id="mensaje-carrito"
+            class="alert alert-success d-none mt-4"
+            role="status"
+            aria-live="polite"
+          ></div>
+        </div>
+      </section>
+    </main>
+
+    <mi-footer></mi-footer>
+
+    <script src="../componentes.js"></script>
+    <script src="function.js"></script>
+  </body>
+</html>
