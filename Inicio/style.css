@@ -1,10 +1,13 @@
-.textoCentral h2{
+.textoCentral h2,
+.titulo-prod h2{
     font-family: 'Playfair Display', Georgia, serif;
     font-size: 2.8rem;
     font-weight: 700;
     color: #2c180e;
     margin-bottom: 5px;
     letter-spacing: 2px;
+    display: flex;
+    justify-content: center;
 }
 .subtitulo {
     max-width: 1000px;
@@ -63,4 +66,24 @@ h2,
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
+}
+.contenedor-prod {
+    padding: 20px 0;
+}
+
+.contenedor-prod .tarjeta-producto{
+    border-radius: 10%;
+    background-color: rgb(210, 241, 255);
+}
+
+.contenedor-prod .tarjeta-producto{
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.8rem;
+    color: #2c180e;
+}
+
+.img-producto {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
 }

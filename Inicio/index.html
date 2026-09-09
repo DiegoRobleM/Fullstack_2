@@ -16,46 +16,71 @@
   <mi-navbar></mi-navbar>
 
   <main class="container my-5">
-  <section class="d-flex align-items-center gap-4 mb-5">
-    <div class="imgCentral">
-      <img
-        src="img/Pasteleria.jpg.jpeg"
-        class="img-thumbnail shadow-sm p-2 bg-white"
-        alt="Pastelería 1000 Sabores"
-      />
-    </div>
+    <section class="d-flex align-items-center gap-4 mb-5">
+          <div class="imgCentral">
+            <img src="img/Pasteleria.jpg.jpeg" class="img-thumbnail shadow-sm p-2 bg-white" alt="Pasteleria">
+          </div>
 
-    <div class="textoCentral">
-      <h2>Pastelería 1000 Sabores</h2>
+          <div class="textoCentral">
+            <h2>Pastelería 1000 Sabores</h2>
+            <div class="subtitulo">
+              <p>Entregando sabor desde 1976.</p>
+            </div>
+            <div class="btnesCentral">
+              <a href="../Pasteleria/pasteleria.html" class="btn-Productos text-decoration-none">Productos</a>
+              <a href="../SobreNosotros/sobrenosotros.html" class="btn-Nosotros text-decoration-none">Nosotros</a>
+            </div>
+          </div>
+        </section>
 
-      <div class="subtitulo">
-        <p>Entregando sabor desde 1976.</p>
-      </div>
+        <section class="mb-5">
+          <div class="titulo-prod">
+            <h2 class="mb-4">Nuestros productos</h2>
+          </div>
 
-      <div class="btnesCentral">
-        <a
-          href="../Pasteleria/pasteleria.html"
-          class="btn-Productos text-decoration-none"
-        >
-          Productos
-        </a>
+          <div class="row g-4 contenedor-prod">
 
-        <a
-          href="../SobreNosotros/sobrenosotros.html"
-          class="btn-Nosotros text-decoration-none"
-        >
-          Nosotros
-        </a>
-      </div>
-    </div>
-  </section>
-</main>
+            <div class="col-12 col-md-4">
+              <a href="../Pasteleria/pasteleria.html" class="text-decoration-none text-dark">
+                <div class="card tarjeta-producto h-100 shadow-sm text-center">
+                  <div class="card-body py-3">
+                    <h5 class="card-title fw-bold mb-0">Pasteles</h5>
+                  </div>
+                  <img src="img/pasteles.jpg" class="card-img-bottom img-producto" alt="Pastel de Chocolate">
+                </div>
+              </a>
+            </div>
+
+             <div class="col-12 col-md-4">
+              <a href="../Panaderia/index.html" class="text-decoration-none text-dark">
+                <div class="card tarjeta-producto h-100 shadow-sm text-center">
+                  <div class="card-body py-3">
+                    <h5 class="card-title fw-bold mb-0">Panes</h5>
+                  </div>
+                  <img src="img/panes.jpg" class="card-img-bottom img-producto" alt="Pan Ciabatta">
+                </div>
+              </a>
+            </div> 
+
+            <div class="col-12 col-md-4">
+              <a href="../Salados/index.html" class="text-decoration-none text-dark">
+                <div class="card tarjeta-producto h-100 shadow-sm text-center">
+                  <div class="card-body py-3">
+                    <h5 class="card-title fw-bold mb-0">Salados</h5>
+                  </div>
+                  <img src="img/salados.jpg" class="card-img-bottom img-producto" alt="Salados">
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+
+  </main>
 
 
   <mi-footer></mi-footer>
-
-
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../componentes.js"></script>
   <script src="function.js"></script>
 </body>
