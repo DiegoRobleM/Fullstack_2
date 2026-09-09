@@ -4,7 +4,7 @@ const mensajeRegistro = document.querySelector("#mensaje-registro");
 function mostrarMensaje(texto, tipo) {
   mensajeRegistro.innerHTML = texto;
   mensajeRegistro.className = `alert alert-${tipo}`;
-  mensajeRegistro.classList.remove("d-none"); 
+  mensajeRegistro.classList.remove("d-none");
 
   mensajeRegistro.scrollIntoView({
     behavior: "smooth",
@@ -14,12 +14,21 @@ function mostrarMensaje(texto, tipo) {
 
 function obtenerUsuariosRegistrados() {
   try {
-    const textoGuardado = localStorage.getItem("usuariosRegistrados");
-    const datosGuardados = JSON.parse(textoGuardado);
+    const textoGuardado =
+      localStorage.getItem("usuariosRegistrados");
 
-    return Array.isArray(datosGuardados) ? datosGuardados : [];
+    const datosGuardados =
+      JSON.parse(textoGuardado);
+
+    if (Array.isArray(datosGuardados)) {
+      return datosGuardados;
+    } else {
+      return [];
+    }
   } catch (error) {
-    console.warn("No se pudieron leer los usuarios registrados.");
+    console.warn(
+      "No se pudieron leer los usuarios registrados."
+    );
     return [];
   }
 }
@@ -67,11 +76,11 @@ formularioRegistro.addEventListener("submit", function (evento) {
 
   if (errores.length > 0) {
     mostrarMensaje(errores.join("<br>"), "danger");
-    return; 
+    return;
   }
- 
+
   // AQUI LA PARTE DEL GUARDADO, ARRIBA ES SOLO VALIDACIONES
-  
+
   const usuarios = obtenerUsuariosRegistrados();
 
   const correoRegistrado = usuarios.some(
@@ -102,7 +111,6 @@ formularioRegistro.addEventListener("submit", function (evento) {
   };
 
   usuarios.push(usuario);
-  usuarios.push(usuario);
 
   localStorage.setItem("usuariosRegistrados", JSON.stringify(usuarios));
 
@@ -112,11 +120,7 @@ formularioRegistro.addEventListener("submit", function (evento) {
   );
 
   formularioRegistro.reset();
-  formularioRegistro.reset();
 
-  setTimeout(function () {
-    window.location.href = "../InicioSesion/iniciosesion.html";
-  }, 2500);
   setTimeout(function () {
     window.location.href = "../InicioSesion/iniciosesion.html";
   }, 2500);
