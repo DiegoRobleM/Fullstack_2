@@ -66,9 +66,17 @@
 
               <h2 class="card-title h4 mt-3">Usuarios</h2>
 
-              <p class="card-text">Consultar, editar y eliminar cuentas.</p>
+              <p class="card-text">
+                Ver las cuentas registradas en este navegador.
+              </p>
 
-              <span class="badge text-bg-secondary"> Pendiente </span>
+              <button
+                type="button"
+                id="btn-ver-usuarios"
+                class="btn btn-outline-dark"
+              >
+                Ver usuarios
+              </button>
             </div>
           </article>
         </div>
@@ -97,6 +105,35 @@
             </thead>
 
             <tbody id="tabla-consultas"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="seccion-usuarios" class="mt-5 d-none">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h2 class="h3 mb-0">Usuarios registrados</h2>
+
+          <span id="total-usuarios" class="badge text-bg-dark"> 0 </span>
+        </div>
+
+        <div id="sin-usuarios" class="alert alert-info d-none" role="status">
+          Todavía no existen usuarios registrados.
+        </div>
+
+        <div id="contenedor-tabla-usuarios" class="table-responsive">
+          <table class="table table-striped table-hover align-middle">
+            <thead>
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Región</th>
+                <th scope="col">Comuna</th>
+                <th scope="col">Tipo de propiedad</th>
+                <th scope="col">Rol</th>
+              </tr>
+            </thead>
+
+            <tbody id="tabla-usuarios"></tbody>
           </table>
         </div>
       </section>
