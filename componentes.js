@@ -40,6 +40,51 @@ class MiFooter extends HTMLElement {
 
 customElements.define("mi-footer", MiFooter);
 
+function obtenerCantidadCarritoNavbar() {
+  try {
+    const carrito = JSON.parse(localStorage.getItem("carrito"));
+
+    if (!Array.isArray(carrito)) {
+      return 0;
+    }
+
+    return carrito.reduce(function (total, producto) {
+      return total + Number(producto.cantidad || 0);
+    }, 0);
+  } catch (error) {
+    return 0;
+  }
+}
+
+function actualizarContadorCarrito() {
+  const contador = document.querySelector("#contador-carrito");
+
+  const enlaceCarrito = document.querySelector("#enlace-carrito-navbar");
+
+  if (!contador || !enlaceCarrito) {
+    return;
+  }
+
+  const cantidad = obtenerCantidadCarritoNavbar();
+
+  if (cantidad <= 0) {
+    contador.classList.add("d-none");
+
+    enlaceCarrito.setAttribute("aria-label", "Carrito de compras vacío");
+
+    return;
+  }
+
+  contador.textContent = cantidad > 99 ? "+99" : cantidad;
+
+  contador.classList.remove("d-none");
+
+  enlaceCarrito.setAttribute(
+    "aria-label",
+    `Carrito de compras: ${cantidad} unidades`,
+  );
+}
+
 class MiNavbar extends HTMLElement {
   connectedCallback() {
     const datosUsuario =
@@ -175,20 +220,34 @@ class MiNavbar extends HTMLElement {
                   <li class="nav-item">
                     <a class="nav-link text-white" href="../SobreNosotros/sobrenosotros.html">Sobre nosotros </a>
                   </li>
-
-                  ${menuSesion} 
+ 
                 </ul>
                 
 
-                <div class="d-flex align-items-center ms-auto">
+                <div class="d-flex align-items-center ms-auto gap-3">
+
+                  <ul class="navbar-nav flex-row align-items-center gap-2">
+                    ${menuSesion}
+                  </ul>
 
                   <a
-                      href="../Carrito/carrito.html"
-                      class="btn btn-outline-light ms-3"
-                      title="Carrito de compras"
+                    id="enlace-carrito-navbar"
+                    href="../Carrito/carrito.html"
+                    class="btn btn-outline-light position-relative"
+                    title="Carrito de compras"
+                    aria-label="Carrito de compras"
                   >
-                      <i class="bi bi-cart3"></i>
+                    <i class="bi bi-cart3"></i>
+
+                    <span
+                      id="contador-carrito"
+                      class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-danger d-none"
+                      aria-hidden="true"
+                    >
+                      0
+                    </span>
                   </a>
+                  
 
                 </div>
               </div>
@@ -211,6 +270,7 @@ class MiNavbar extends HTMLElement {
         window.location.replace("../InicioSesion/iniciosesion.html");
       });
     }
+    actualizarContadorCarrito();
   }
 }
 

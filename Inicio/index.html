@@ -16,47 +16,109 @@
   <mi-navbar></mi-navbar>
 
   <main class="container my-5">
-  <section class="d-flex align-items-center gap-4 mb-5">
-    <div class="imgCentral">
-      <img
-        src="img/Pasteleria.jpg.jpeg"
-        class="img-thumbnail shadow-sm p-2 bg-white"
-        alt="Pastelería 1000 Sabores"
-      />
-    </div>
+    <section class="d-flex align-items-center gap-4 mb-5">
+          <div class="imgCentral">
+            <img src="img/Pasteleria.jpg.jpeg" class="img-thumbnail shadow-sm p-2 bg-white" alt="Pasteleria">
+          </div>
 
-    <div class="textoCentral">
-      <h2>Pastelería 1000 Sabores</h2>
+          <div class="textoCentral">
+            <h2>Pastelería 1000 Sabores</h2>
+            <div class="subtitulo">
+              <p>Entregando sabor desde 1976.</p>
+            </div>
+            <div class="btnesCentral">
+              <a href="../Pasteleria/pasteleria.html" class="btn-Productos text-decoration-none">Productos</a>
+              <a href="../SobreNosotros/sobrenosotros.html" class="btn-Nosotros text-decoration-none">Nosotros</a>
+            </div>
+          </div>
+        </section>
 
-      <div class="subtitulo">
-        <p>Entregando sabor desde 1976.</p>
-      </div>
+        <section class="mb-5">
+          <div class="titulo-prod">
+            <h2 class="mb-4">Nuestros productos</h2>
+          </div>
 
-      <div class="btnesCentral">
-        <a
-          href="../Pasteleria/pasteleria.html"
-          class="btn-Productos text-decoration-none"
-        >
-          Productos
-        </a>
+          <div class="row g-4 contenedor-prod">
 
-        <a
-          href="../SobreNosotros/sobrenosotros.html"
-          class="btn-Nosotros text-decoration-none"
-        >
-          Nosotros
-        </a>
-      </div>
-    </div>
-  </section>
-</main>
+            <div class="col-12 col-md-4">
+              <a href="../Pasteleria/pasteleria.html" class="text-decoration-none text-dark">
+                <div class="card tarjeta-producto h-100 shadow-sm text-center">
+                  <div class="card-body py-3">
+                    <h5 class="card-title fw-bold mb-0">Pasteles</h5>
+                  </div>
+                  <img src="img/pasteles.jpg" class="card-img-bottom img-producto" alt="Pastel de Chocolate">
+                </div>
+              </a>
+            </div>
 
+             <div class="col-12 col-md-4">
+              <a href="../Panaderia/index.html" class="text-decoration-none text-dark">
+                <div class="card tarjeta-producto h-100 shadow-sm text-center">
+                  <div class="card-body py-3">
+                    <h5 class="card-title fw-bold mb-0">Panes</h5>
+                  </div>
+                  <img src="img/panes.jpg" class="card-img-bottom img-producto" alt="Pan Ciabatta">
+                </div>
+              </a>
+            </div> 
+
+            <div class="col-12 col-md-4">
+              <a href="../Salados/index.html" class="text-decoration-none text-dark">
+                <div class="card tarjeta-producto h-100 shadow-sm text-center">
+                  <div class="card-body py-3">
+                    <h5 class="card-title fw-bold mb-0">Salados</h5>
+                  </div>
+                  <img src="img/salados.jpg" class="card-img-bottom img-producto" alt="Salados">
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+         <section class="mb-5">
+          <div class="titulo-loc">
+            <h2 class="mb-4">Nuestros locales</h2>
+          </div>
+
+          <div class="row g-4 contenedor-local">
+            <div class="col-12 col-md-4">
+              <a href="https://tinyurl.com/pasteleria1000" class="text-decoration-none text-dark">
+                <div class="card tarjeta-local h-100 shadow-sm text-center">
+                  <img src="img/Pasteleria.jpg.jpeg" class="card-img-bottom img-local" alt="PasteleriaLocal">
+                </div>
+              </a>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <div class="card tarjeta-bg h-100 shadow-sm text-center">
+                  <div class="card-body py-3">
+                    <h3 class="card-title fw-bold mb-0">Todo comenzó en la cocina de la Abuela Carmen, 
+                      entre el aroma a vainilla fresca, una cuchara de palo desgastada y un cuaderno de 
+                      tapas de cuero donde guardaba sus secretos mejor guardados. 
+                      Entre todas sus creaciones, había una estrella indiscutida: 
+                      su legendaria Torta Hojarasca con Manjar Artesanal y Nuez. 
+                      Lo que empezó como el hito infaltable de los domingos familiares, 
+                      pronto cruzó la puerta de la casa cuando los vecinos comenzaron a tocar la ventana 
+                      pidiendo encargos para sus propios cumpleaños. </h3>
+                    <h3 class="card-title fw-bold mb-0">En 1976, empujados por el entusiasmo de un barrio entero enamorado de 
+                    esa receta única, la familia decidió dar el salto y abrir las puertas 
+                    de Pastelería 1000 Sabores. Aquel pastel de la abuela no solo se convirtió
+                     en el producto estrella, sino en la piedra angular de un negocio 
+                     que creció basándose en el boca a boca, el cariño de hogar y el
+                      respeto por los ingredientes auténticos.</h3>
+                      <h3 class="card-title fw-bold mb-0">Ahora la tienda original se encuentra cerrada pero nos relocalizamos 
+                        en Dublé Almeyda 3141, 7750000 Ñuñoa, Región Metropolitana </h3>
+                  </div>
+
+                </div>
+              </a>
+            </div>
+          </div>
+            </section>
+
+  </main>
 
   <mi-footer></mi-footer>
-
-
-
-  <script src="../componentes.js"></script>
+  <script src="../componentes.js" ></script>
   <script src="function.js"></script>
 </body>
 

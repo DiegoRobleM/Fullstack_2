@@ -8,7 +8,7 @@ function mostrarMensaje(texto, tipo) {
 
   mensajeRegistro.scrollIntoView({
     behavior: "smooth",
-    block: "center"
+    block: "center",
   });
 }
 
@@ -17,6 +17,7 @@ function obtenerUsuariosRegistrados() {
     const textoGuardado = localStorage.getItem("usuariosRegistrados");
     const datosGuardados = JSON.parse(textoGuardado);
 
+    return Array.isArray(datosGuardados) ? datosGuardados : [];
     return Array.isArray(datosGuardados) ? datosGuardados : [];
   } catch (error) {
     console.warn("No se pudieron leer los usuarios registrados.");
@@ -73,7 +74,7 @@ formularioRegistro.addEventListener("submit", function (evento) {
   // AQUI LA PARTE DEL GUARDADO, ARRIBA ES SOLO VALIDACIONES
   
   const usuarios = obtenerUsuariosRegistrados();
-  
+
   const correoRegistrado = usuarios.some(
     (usuarioGuardado) =>
       usuarioGuardado && usuarioGuardado.email === email
@@ -102,11 +103,9 @@ formularioRegistro.addEventListener("submit", function (evento) {
   };
 
   usuarios.push(usuario);
+  usuarios.push(usuario);
 
-  localStorage.setItem(
-    "usuariosRegistrados",
-    JSON.stringify(usuarios)
-  );
+  localStorage.setItem("usuariosRegistrados", JSON.stringify(usuarios));
 
   mostrarMensaje(
     "Registro realizado correctamente. Serás redirigido al inicio de sesión.",
@@ -114,7 +113,11 @@ formularioRegistro.addEventListener("submit", function (evento) {
   );
 
   formularioRegistro.reset();
+  formularioRegistro.reset();
 
+  setTimeout(function () {
+    window.location.href = "../InicioSesion/iniciosesion.html";
+  }, 2500);
   setTimeout(function () {
     window.location.href = "../InicioSesion/iniciosesion.html";
   }, 2500);
