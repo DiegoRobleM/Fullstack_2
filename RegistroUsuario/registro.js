@@ -18,7 +18,6 @@ function obtenerUsuariosRegistrados() {
     const datosGuardados = JSON.parse(textoGuardado);
 
     return Array.isArray(datosGuardados) ? datosGuardados : [];
-    return Array.isArray(datosGuardados) ? datosGuardados : [];
   } catch (error) {
     console.warn("No se pudieron leer los usuarios registrados.");
     return [];
