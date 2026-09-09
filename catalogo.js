@@ -37,15 +37,26 @@ for (const producto of productos) {
     `;
 
   const btnVer = card.querySelector(".btn-ver");
+
   btnVer.addEventListener("click", function () {
-    console.log("Producto seleccionado:", producto);
+    const productoParaDetalle = {
+      ...producto,
+      paginaOrigen: window.location.href,
+    };
+
+    sessionStorage.setItem(
+      "productoSeleccionado",
+      JSON.stringify(productoParaDetalle),
+    );
+
+    window.location.href = "../DetalleProducto/index.html";
   });
 
-    const btnAgregar = card.querySelector(".btn-agregar");
-    btnAgregar.addEventListener("click", function () {
-        guardar(producto);
-        mostrarToast(); //EN ESTA PARTE ACTIVAMOS EL MENSAJE
-    });
+  const btnAgregar = card.querySelector(".btn-agregar");
+  btnAgregar.addEventListener("click", function () {
+    guardar(producto);
+    mostrarToast(); //EN ESTA PARTE ACTIVAMOS EL MENSAJE
+  });
 
   contenedorProductos.appendChild(card);
 }
@@ -63,9 +74,7 @@ function obtenerCarrito() {
 
     return [];
   } catch (error) {
-    console.warn(
-      "No se pudo leer el carrito guardado. Se iniciará uno nuevo."
-    );
+    console.warn("No se pudo leer el carrito guardado. Se iniciará uno nuevo.");
 
     return [];
   }
@@ -91,11 +100,11 @@ function guardar(producto) {
 }
 
 function mostrarToast() {
-    const toast = document.getElementById("toast-notificacion");
-    // AQUI SE CAMBIA LA CLASE PARA QUE SE HAGA VISIBLE
-    toast.className = "toast-visible";
-    // DESPUES DE 3 SEGUNDOS DESAPARECE
-    setTimeout(() => {
-        toast.className = "toast-oculto";
-    }, 3000);
+  const toast = document.getElementById("toast-notificacion");
+  // AQUI SE CAMBIA LA CLASE PARA QUE SE HAGA VISIBLE
+  toast.className = "toast-visible";
+  // DESPUES DE 3 SEGUNDOS DESAPARECE
+  setTimeout(() => {
+    toast.className = "toast-oculto";
+  }, 3000);
 }

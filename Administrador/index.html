@@ -32,9 +32,13 @@
                 Revisar las consultas enviadas por los usuarios.
               </p>
 
-              <a href="#seccion-consultas" class="btn btn-outline-dark">
+              <button
+                type="button"
+                id="btn-ver-consultas"
+                class="btn btn-outline-dark"
+              >
                 Ver consultas
-              </a>
+              </button>
             </div>
           </article>
         </div>
@@ -70,14 +74,14 @@
         </div>
       </div>
 
-      <section id="seccion-consultas" class="mt-5">
+      <section id="seccion-consultas" class="mt-5 d-none">
         <div class="d-flex justify-content-between align-items-center mb-3">
           <h2 class="h3 mb-0">Consultas recibidas</h2>
 
           <span id="total-consultas" class="badge text-bg-dark"> 0 </span>
         </div>
 
-        <div id="sin-consultas" class="alert alert-info d-none">
+        <div id="sin-consultas" class="alert alert-info d-none" role="status">
           Todavía no se han recibido consultas.
         </div>
 
@@ -85,10 +89,10 @@
           <table class="table table-striped table-hover align-middle">
             <thead>
               <tr>
-                <th>Fecha</th>
-                <th>Correo</th>
-                <th>Consulta</th>
-                <th>Estado</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Consulta</th>
+                <th scope="col">Estado</th>
               </tr>
             </thead>
 
