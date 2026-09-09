@@ -21,6 +21,45 @@ function obtenerUsuariosRegistrados() {
   }
 }
 
+function crearAdministradorDemo() {
+  const usuarios = obtenerUsuariosRegistrados();
+
+  const administradorExistente = usuarios.some(
+    function (usuario) {
+      return (
+        usuario &&
+        usuario.email === "admin@pasteleria.test"
+      );
+    }
+  );
+
+  if (administradorExistente) {
+    return;
+  }
+
+  const administradorDemo = {
+    nombre: "Administrador",
+    apellido: "Demo",
+    email: "admin@pasteleria.test",
+    password: "AdminDemo123!",
+    rol: "admin",
+    direccion: "Dirección ficticia",
+    tipoPropiedad: "Local",
+    region: "metropolitana",
+    comuna: "santiago",
+    guardarDatos: false
+  };
+
+  usuarios.push(administradorDemo);
+
+  localStorage.setItem(
+    "usuariosRegistrados",
+    JSON.stringify(usuarios)
+  );
+}
+
+crearAdministradorDemo();
+
 formularioInicioSesion.addEventListener("submit", function (evento) {
   evento.preventDefault();
 
