@@ -119,8 +119,6 @@ function agregarProductoAlCarrito() {
   localStorage.setItem(LLAVE_CARRITO, JSON.stringify(carrito));
 
   mostrarToast();
-
-  mensajeCarrito.classList.remove("d-none");
 }
 
 function mostrarToast() {
