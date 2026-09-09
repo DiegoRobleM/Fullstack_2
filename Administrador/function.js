@@ -19,6 +19,7 @@ if (!usuarioActivo) {
   window.location.replace("../Inicio/index.html");
 } else {
   const panelAdmin = document.querySelector("#panel-admin");
+
   const saludoAdmin = document.querySelector("#saludo-admin");
 
   saludoAdmin.textContent =
@@ -26,19 +27,34 @@ if (!usuarioActivo) {
     `${usuarioActivo.apellido}.`;
 
   panelAdmin.classList.remove("d-none");
-  mostrarConsultas();
+
+  inicializarPanelConsultas();
 }
 
+function inicializarPanelConsultas() {
+  const btnVerConsultas = document.querySelector("#btn-ver-consultas");
+
+  const seccionConsultas = document.querySelector("#seccion-consultas");
+
+  btnVerConsultas.addEventListener("click", function () {
+    seccionConsultas.classList.remove("d-none");
+
+    mostrarConsultas();
+
+    seccionConsultas.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  });
+}
 
 function obtenerConsultas() {
   try {
     const consultasGuardadas = JSON.parse(
-      localStorage.getItem("consultasContacto")
+      localStorage.getItem("consultasContacto"),
     );
 
-    return Array.isArray(consultasGuardadas)
-      ? consultasGuardadas
-      : [];
+    return Array.isArray(consultasGuardadas) ? consultasGuardadas : [];
   } catch (error) {
     return [];
   }
@@ -46,47 +62,45 @@ function obtenerConsultas() {
 
 function crearCelda(texto) {
   const celda = document.createElement("td");
+
   celda.textContent = texto;
 
   return celda;
 }
 
-function obtenerClaseEstado(estado) {
-  const clasesEstado = {
-    pendiente: "text-bg-warning",
-    "en revisión": "text-bg-primary",
-    resuelta: "text-bg-success"
-  };
+function cambiarEstadoConsulta(consultaId, nuevoEstado) {
+  const consultas = obtenerConsultas();
 
-  return clasesEstado[estado] || "text-bg-secondary";
+  const consultaEncontrada = consultas.find(function (consulta) {
+    return consulta.id === consultaId;
+  });
+
+  if (!consultaEncontrada) {
+    return;
+  }
+
+  consultaEncontrada.estado = nuevoEstado;
+
+  localStorage.setItem("consultasContacto", JSON.stringify(consultas));
+
+  mostrarConsultas();
 }
 
 function mostrarConsultas() {
-  const tablaConsultas = document.querySelector(
-    "#tabla-consultas"
-  );
+  const tablaConsultas = document.querySelector("#tabla-consultas");
 
-  const totalConsultas = document.querySelector(
-    "#total-consultas"
-  );
+  const totalConsultas = document.querySelector("#total-consultas");
 
-  const mensajeSinConsultas = document.querySelector(
-    "#sin-consultas"
-  );
+  const mensajeSinConsultas = document.querySelector("#sin-consultas");
 
-  const contenedorTabla = document.querySelector(
-    "#contenedor-tabla-consultas"
-  );
+  const contenedorTabla = document.querySelector("#contenedor-tabla-consultas");
 
   const consultas = obtenerConsultas();
 
   const consultasOrdenadas = [...consultas].sort(
     function (consultaA, consultaB) {
-      return (
-        new Date(consultaB.fecha) -
-        new Date(consultaA.fecha)
-      );
-    }
+      return new Date(consultaB.fecha) - new Date(consultaA.fecha);
+    },
   );
 
   tablaConsultas.textContent = "";
@@ -95,6 +109,7 @@ function mostrarConsultas() {
   if (consultasOrdenadas.length === 0) {
     mensajeSinConsultas.classList.remove("d-none");
     contenedorTabla.classList.add("d-none");
+
     return;
   }
 
@@ -106,10 +121,7 @@ function mostrarConsultas() {
 
     fila.dataset.consultaId = consulta.id;
 
-    const fechaFormateada = new Date(
-      consulta.fecha
-    ).toLocaleString("es-CL");
-
+    const fechaFormateada = new Date(consulta.fecha).toLocaleString("es-CL");
     const celdaFecha = crearCelda(fechaFormateada);
     const celdaCorreo = crearCelda(consulta.correo);
     const celdaMensaje = crearCelda(consulta.mensaje);
@@ -118,20 +130,38 @@ function mostrarConsultas() {
     celdaMensaje.classList.add("celda-consulta");
 
     const estado = consulta.estado || "pendiente";
-    const insigniaEstado = document.createElement("span");
+    const selectorEstado = document.createElement("select");
 
-    insigniaEstado.textContent = estado;
-    insigniaEstado.className =
-      `badge ${obtenerClaseEstado(estado)}`;
+    selectorEstado.className = "form-select form-select-sm";
 
-    celdaEstado.appendChild(insigniaEstado);
-
-    fila.append(
-      celdaFecha,
-      celdaCorreo,
-      celdaMensaje,
-      celdaEstado
+    selectorEstado.setAttribute(
+      "aria-label",
+      `Cambiar estado de la consulta de ${consulta.correo}`,
     );
+
+    selectorEstado.innerHTML = `
+      <option value="pendiente">
+        Pendiente
+      </option>
+
+      <option value="en revisión">
+        En revisión
+      </option>
+
+      <option value="resuelta">
+        Resuelta
+      </option>
+    `;
+
+    selectorEstado.value = estado;
+
+    selectorEstado.addEventListener("change", function () {
+      cambiarEstadoConsulta(consulta.id, selectorEstado.value);
+    });
+
+    celdaEstado.appendChild(selectorEstado);
+
+    fila.append(celdaFecha, celdaCorreo, celdaMensaje, celdaEstado);
 
     tablaConsultas.appendChild(fila);
   }
