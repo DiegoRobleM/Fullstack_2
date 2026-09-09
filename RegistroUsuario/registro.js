@@ -47,7 +47,7 @@ formularioRegistro.addEventListener("submit", function (evento) {
   const region = datosFormulario.get("region");
   const comuna = datosFormulario.get("comuna").trim();
   const guardarDatos = datosFormulario.has("guardarDatos");
-
+  
   let errores = [];
 
   if (nombre === "") {
