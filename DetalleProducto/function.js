@@ -41,11 +41,9 @@ function mostrarProducto(producto) {
   categoriaDetalle.textContent = obtenerCategoria(producto);
   tituloDetalle.textContent = producto.titulo;
   descripcionDetalle.textContent = producto.descripcion;
-  precioDetalle.textContent =
-    `$${producto.precio.toLocaleString("es-CL")}`;
+  precioDetalle.textContent = `$${producto.precio.toLocaleString("es-CL")}`;
 
-  document.title =
-    `${producto.titulo} | Pastelería 1000 Sabores`;
+  document.title = `${producto.titulo} | Pastelería 1000 Sabores`;
 
   btnAgregar.disabled = false;
 }
@@ -104,7 +102,7 @@ function agregarProductoAlCarrito() {
   const carrito = obtenerCarrito();
 
   const productoExistente = carrito.find(
-    (item) => item.id === productoSeleccionado.id
+    (item) => item.id === productoSeleccionado.id,
   );
 
   if (productoExistente) {
@@ -114,16 +112,25 @@ function agregarProductoAlCarrito() {
 
     carrito.push({
       ...datosProducto,
-      cantidad
+      cantidad,
     });
   }
 
   localStorage.setItem(LLAVE_CARRITO, JSON.stringify(carrito));
 
-  mensajeCarrito.textContent =
-    `${productoSeleccionado.titulo}: ${cantidad} unidad(es) agregada(s) al carrito.`;
+  mostrarToast();
 
   mensajeCarrito.classList.remove("d-none");
+}
+
+function mostrarToast() {
+  mensajeCarrito.textContent = "🍰 ¡PRODUCTO AGREGADO A TU CARRITO!";
+
+  mensajeCarrito.className = "toast-visible";
+
+  setTimeout(() => {
+    mensajeCarrito.className = "toast-oculto";
+  }, 3000);
 }
 
 function volverAlCatalogo() {
