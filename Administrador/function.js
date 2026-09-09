@@ -29,6 +29,7 @@ if (!usuarioActivo) {
   panelAdmin.classList.remove("d-none");
 
   inicializarPanelConsultas();
+  inicializarPanelProductos();
   inicializarPanelUsuarios();
 }
 
@@ -47,6 +48,28 @@ function inicializarPanelConsultas() {
       block: "start",
     });
   });
+}
+
+function inicializarPanelProductos() {
+  const btnVerProductos = document.querySelector(
+    "#btn-ver-productos"
+  );
+
+  const seccionProductos = document.querySelector(
+    "#seccion-productos"
+  );
+
+  btnVerProductos.addEventListener(
+    "click",
+    function () {
+      seccionProductos.classList.remove("d-none");
+
+      seccionProductos.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+  );
 }
 
 function inicializarPanelUsuarios() {

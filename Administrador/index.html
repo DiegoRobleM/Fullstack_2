@@ -51,10 +51,16 @@
               <h2 class="card-title h4 mt-3">Productos</h2>
 
               <p class="card-text">
-                Crear, editar y eliminar productos del catálogo.
+                Revisar los productos publicados en cada categoría.
               </p>
 
-              <span class="badge text-bg-secondary"> Pendiente </span>
+              <button
+                type="button"
+                id="btn-ver-productos"
+                class="btn btn-outline-dark"
+              >
+                Ver productos
+              </button>
             </div>
           </article>
         </div>
@@ -81,7 +87,47 @@
           </article>
         </div>
       </div>
+      <section id="seccion-productos" class="mt-5 d-none">
+        <h2 class="h3 mb-3">Catálogos publicados</h2>
 
+        <div class="row g-3">
+          <div class="col-12 col-md-6">
+            <a
+              href="../Pasteleria/pasteleria.html"
+              class="btn btn-outline-dark w-100 py-3"
+            >
+              Pastelería
+            </a>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <a
+              href="../Panaderia/index.html"
+              class="btn btn-outline-dark w-100 py-3"
+            >
+              Panadería
+            </a>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <a
+              href="../Salados/index.html"
+              class="btn btn-outline-dark w-100 py-3"
+            >
+              Productos salados
+            </a>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <a
+              href="../SinAzucar/sugar.html"
+              class="btn btn-outline-dark w-100 py-3"
+            >
+              Productos sin azúcar
+            </a>
+          </div>
+        </div>
+      </section>
       <section id="seccion-consultas" class="mt-5 d-none">
         <div class="d-flex justify-content-between align-items-center mb-3">
           <h2 class="h3 mb-0">Consultas recibidas</h2>
