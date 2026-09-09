@@ -4,14 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registro - Pastelería 1000 Sabores</title>
-
     <link rel="stylesheet" href="../globalstyle.css" />
     <link rel="stylesheet" href="registro.css" />
   </head>
-
   <body style="background-color: #fff5e1">
     <mi-navbar></mi-navbar>
-
     <main class="contenedor-registro">
       <div class="tarjeta-registro">
         <h2 class="titulo-registro">Registro de Usuario</h2>
@@ -27,13 +24,9 @@
                   id="nombre"
                   name="nombre"
                   autocomplete="given-name"
-                  minlength="2"
-                  maxlength="50"
                   placeholder="Nombre"
-                  required
                 />
               </div>
-
               <div class="col-12 col-md-6">
                 <label for="apellido" class="form-label">Apellido</label>
                 <input
@@ -42,27 +35,20 @@
                   id="apellido"
                   name="apellido"
                   autocomplete="family-name"
-                  minlength="2"
-                  maxlength="50"
                   placeholder="Apellido"
-                  required
                 />
               </div>
             </div>
           </div>
           <div class="campo-grupo">
-            <label for="inputEmail" class="form-label"
-              >2. Correo electrónico</label
-            >
+            <label for="inputEmail" class="form-label">2. Correo electrónico</label>
             <input
               type="email"
               class="form-control"
               id="inputEmail"
               name="email"
               autocomplete="email"
-              maxlength="100"
               placeholder="Escribe aquí tu correo"
-              required
             />
           </div>
           <div class="campo-grupo">
@@ -73,16 +59,11 @@
               id="inputPassword"
               name="password"
               autocomplete="new-password"
-              minlength="8"
-              maxlength="30"
               placeholder="Mínimo 8 caracteres"
-              required
             />
           </div>
           <div class="campo-grupo">
-            <label for="inputAddress" class="form-label">
-              4. Dirección de envío
-            </label>
+            <label for="inputAddress" class="form-label">4. Dirección de envío</label>
             <input
               type="text"
               class="form-control mb-2"
@@ -90,11 +71,8 @@
               name="direccion"
               autocomplete="street-address"
               placeholder="Escribe aquí tu dirección"
-              required
             />
-            <label for="inputAddress2" class="form-label">
-              Tipo de propiedad (opcional)
-            </label>
+            <label for="inputAddress2" class="form-label">Tipo de propiedad (opcional)</label>
             <input
               type="text"
               class="form-control"
@@ -106,44 +84,29 @@
           <div class="campo-grupo">
             <div class="row g-2">
               <div class="col-12 col-md-6">
-                <label for="inputState" class="form-label"> 5. Región </label>
-                <select
-                  id="inputState"
-                  name="region"
-                  class="form-select"
-                  required
-                >
-                  <option value="" selected disabled>
-                    Seleccione una región
-                  </option>
+                <label for="inputState" class="form-label">5. Región</label>
+                <select id="inputState" name="region" class="form-select">
+                  <option value="" selected disabled>Seleccione una región</option>
                   <option value="antofagasta">Antofagasta</option>
                   <option value="arica-y-parinacota">Arica y Parinacota</option>
                   <option value="atacama">Atacama</option>
-                  <option value="aysen">
-                    Aysén del General Carlos Ibáñez del Campo
-                  </option>
+                  <option value="aysen">Aysén del General Carlos Ibáñez del Campo</option>
                   <option value="biobio">Biobío</option>
                   <option value="coquimbo">Coquimbo</option>
                   <option value="la-araucania">La Araucanía</option>
-                  <option value="o-higgins">
-                    Libertador General Bernardo O'Higgins
-                  </option>
+                  <option value="o-higgins">Libertador General Bernardo O'Higgins</option>
                   <option value="los-lagos">Los Lagos</option>
                   <option value="los-rios">Los Ríos</option>
-                  <option value="magallanes">
-                    Magallanes y de la Antártica Chilena
-                  </option>
+                  <option value="magallanes">Magallanes y de la Antártica Chilena</option>
                   <option value="maule">Maule</option>
                   <option value="nuble">Ñuble</option>
-                  <option value="metropolitana">
-                    Región Metropolitana de Santiago
-                  </option>
+                  <option value="metropolitana">Región Metropolitana de Santiago</option>
                   <option value="tarapaca">Tarapacá</option>
                   <option value="valparaiso">Valparaíso</option>
                 </select>
               </div>
               <div class="col-12 col-md-6">
-                <label for="inputComuna" class="form-label"> Comuna </label>
+                <label for="inputComuna" class="form-label">Comuna</label>
                 <input
                   type="text"
                   class="form-control"
@@ -151,7 +114,6 @@
                   name="comuna"
                   autocomplete="address-level2"
                   placeholder="Comuna"
-                  required
                 />
               </div>
             </div>
@@ -165,25 +127,19 @@
                 name="guardarDatos"
                 value="true"
               />
-              <label class="form-check-label" for="gridCheck">
-                Guardar mis datos para futuras compras
-              </label>
+              <label class="form-check-label" for="gridCheck">Guardar mis datos para futuras compras</label>
             </div>
           </div>
           <div class="d-grid gap-2 mt-4">
-            <button type="submit" class="btn btn-registrar btn-zoom">
-              Registrarse
-            </button>
+            <button type="submit" class="btn btn-registrar btn-zoom">Registrarse</button>
             <a
               href="../InicioSesion/iniciosesion.html"
               class="text-center text-decoration-none mt-2 text-muted small"
-              >¿Ya tienes cuenta? Inicia Sesión aquí</a
-            >
+            >¿Ya tienes cuenta? Inicia Sesión aquí</a>
           </div>
         </form>
       </div>
     </main>
-
     <mi-footer></mi-footer>
     <script src="../componentes.js"></script>
     <script src="registro.js"></script>
