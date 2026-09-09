@@ -7,25 +7,19 @@ function mostrarMensaje(texto, tipo) {
 
   mensajeRegistro.scrollIntoView({
     behavior: "smooth",
-    block: "center"
+    block: "center",
   });
 }
 
 function obtenerUsuariosRegistrados() {
   try {
-    const textoGuardado = localStorage.getItem(
-      "usuariosRegistrados"
-    );
+    const textoGuardado = localStorage.getItem("usuariosRegistrados");
 
     const datosGuardados = JSON.parse(textoGuardado);
 
-    return Array.isArray(datosGuardados)
-      ? datosGuardados
-      : [];
+    return Array.isArray(datosGuardados) ? datosGuardados : [];
   } catch (error) {
-    console.warn(
-      "No se pudieron leer los usuarios registrados."
-    );
+    console.warn("No se pudieron leer los usuarios registrados.");
 
     return [];
   }
@@ -46,53 +40,44 @@ formularioRegistro.addEventListener("submit", function (evento) {
   const comuna = datosFormulario.get("comuna").trim();
   const guardarDatos = datosFormulario.has("guardarDatos");
 
-
   const usuarios = obtenerUsuariosRegistrados();
-  
+
   const correoRegistrado = usuarios.some(
-  (usuarioGuardado) =>
-    usuarioGuardado &&
-    usuarioGuardado.email === email
-);
+    (usuarioGuardado) => usuarioGuardado && usuarioGuardado.email === email,
+  );
 
   if (correoRegistrado) {
-  mostrarMensaje(
-    "Ya existe una cuenta asociada a ese correo.",
-    "danger"
-  );
+    mostrarMensaje("Ya existe una cuenta asociada a ese correo.", "danger");
 
-  document.querySelector("#inputEmail").focus();
-  return;
-}
+    document.querySelector("#inputEmail").focus();
+    return;
+  }
 
   const usuario = {
-  nombre: nombre,
-  apellido: apellido,
-  email: email,
-  password: password,
-  rol: "cliente",
-  direccion: direccion,
-  tipoPropiedad: tipoPropiedad,
-  region: region,
-  comuna: comuna,
-  guardarDatos: guardarDatos
-};
+    nombre: nombre,
+    apellido: apellido,
+    email: email,
+    password: password,
+    rol: "cliente",
+    direccion: direccion,
+    tipoPropiedad: tipoPropiedad,
+    region: region,
+    comuna: comuna,
+    guardarDatos: guardarDatos,
+  };
 
-usuarios.push(usuario);
+  usuarios.push(usuario);
 
-  localStorage.setItem(
-    "usuariosRegistrados",
-    JSON.stringify(usuarios)
-  );
+  localStorage.setItem("usuariosRegistrados", JSON.stringify(usuarios));
 
   mostrarMensaje(
-  "Registro realizado correctamente. Serás redirigido al inicio de sesión.",
-  "success"
-);
+    "Registro realizado correctamente. Serás redirigido al inicio de sesión.",
+    "success",
+  );
 
-formularioRegistro.reset();
+  formularioRegistro.reset();
 
-setTimeout(function () {
-  window.location.href = "../InicioSesion/iniciosesion.html";
-}, 2500);
+  setTimeout(function () {
+    window.location.href = "../InicioSesion/iniciosesion.html";
+  }, 2500);
 });
