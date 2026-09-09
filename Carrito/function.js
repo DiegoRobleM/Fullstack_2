@@ -170,6 +170,7 @@ function disminuirCantidad(indice) {
 
 function guardarCarrito() {
   localStorage.setItem(LLAVE, JSON.stringify(carrito));
+  actualizarContadorCarrito();
 }
 
 function vaciarCarrito() {

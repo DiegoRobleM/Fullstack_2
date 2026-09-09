@@ -96,6 +96,7 @@ function guardar(producto) {
   }
 
   localStorage.setItem(LLAVE, JSON.stringify(carrito));
+  actualizarContadorCarrito();
   console.log("Producto agregado:", producto);
 }
 

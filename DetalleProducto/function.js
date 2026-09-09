@@ -117,7 +117,7 @@ function agregarProductoAlCarrito() {
   }
 
   localStorage.setItem(LLAVE_CARRITO, JSON.stringify(carrito));
-
+  actualizarContadorCarrito();
   mostrarToast();
 }
 
